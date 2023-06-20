@@ -21,4 +21,25 @@ printf, malloc, free, perror,
 strerror, exit
 • All functions of the math
 library (-lm man man 3 math)
+
 • All functions of the MinilibX
+
+       First of all, you need to initialize the connection between  your  software  and
+       the  display.   Once this connection is established, you'll be able to use other
+       MiniLibX functions to send the graphical orders, like "I want to draw  a  yellow
+       pixel in this window" or "did the user hit a key?".
+
+       The mlx_init function will create this connection. No parameters are needed, ant
+       it will return a void * identifier, used for further calls to the  library  rou-
+       tines.
+
+       All other MiniLibX functions are described in the following man pages:
+
+
+       mlx_new_window      : manage windows
+
+       mlx_pixel_put       : draw inside window
+
+       mlx_new_image       : manipulate images
+
+       mlx_loop            : handle keyboard or mouse events

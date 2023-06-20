@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/06/20 17:20:16 by glacroix         ###   ########.fr        #
+#    Updated: 2023/06/20 18:00:17 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NAME		= fractol
 
 #SRC & OBJS Details
 # **************************************************************************** #
-SRCS		= srcs/
+SRCS		= srcs/main.c
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 
@@ -35,7 +35,7 @@ OBJS		= $(SRCS:%.c=objs/%.o)
 # **************************************************************************** #
 LIBFT		= libft/libft.a
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -lmlx -framework OpenGL -framework AppKit
 CFLAGS		+= -I include
 CFLAGS		+= -I libft -g3
 #DEGUB		= -g3 -fsanitize=address
