@@ -1,5 +1,12 @@
 							**FRACTOL**
 
+IMPROVEMENTS:
+	- need to rewrite Makefile in libft/
+
+
+ERRORS:
+
+
 This project’s goal is to create a small fractal exploration program. Start by seeing what a fractal is.
 
 *The constraints are as follows:*
