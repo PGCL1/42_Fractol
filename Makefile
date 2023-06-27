@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/06/21 16:42:21 by glacroix         ###   ########.fr        #
+#    Updated: 2023/06/27 17:22:02 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,10 @@ OBJS		= $(SRCS:%.c=objs/%.o)
 # **************************************************************************** #
 LIBFT		= libft/libft.a
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -lmlx -framework OpenGL -framework AppKit
+CFLAGS		= -Wall -Werror -Wextra -Imlx
 CFLAGS		+= -I include
 CFLAGS		+= -I libft -g3
+MINI		= -Lmlx -lmlx -framework OpenGL -framework AppKit
 #DEGUB		= -g3 -fsanitize=address
 
 #SRC Execution
@@ -45,7 +46,7 @@ CFLAGS		+= -I libft -g3
 ${NAME}: objs ${OBJS}
 	@echo $(YELLOW) "\n .........Compiling lib.........\n" $(RESET)
 	@make -sC libft
-	@$(CC) $(CFLAGS) ${OBJS} $(LIBFT) -o ${NAME}
+	@$(CC) $(OBJS) $(LIBFT) $(MINI) -o $(NAME)
 	@echo $(GREEN) "       Fractol Compiled!       \n" $(RESET)
 
 #Makefile Cmds
@@ -54,9 +55,9 @@ objs:
 	@mkdir -p objs/srcs
 
 objs/%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
-all: ${NAME}
+all: $(NAME)
 
 clean:
 	@make clean -sC libft

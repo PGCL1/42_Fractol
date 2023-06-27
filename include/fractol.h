@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:47:14 by glacroix          #+#    #+#             */
-/*   Updated: 2023/06/21 17:23:26 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:32:12 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ typedef struct t_win {
 	void	*ptr;
 }				t_win;
 
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 
 #endif

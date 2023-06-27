@@ -50,3 +50,8 @@ library (-lm man man 3 math)
        mlx_new_image       : manipulate images
 
        mlx_loop            : handle keyboard or mouse events
+
+
+ZOOM IN		is 4
+ZOOM OUT	is 5
+
