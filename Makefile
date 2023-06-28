@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/06/27 17:22:02 by glacroix         ###   ########.fr        #
+#    Updated: 2023/06/28 14:38:15 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ NAME		= fractol
 
 #SRC & OBJS Details
 # **************************************************************************** #
-SRCS		= srcs/main.c
+SRCS		= srcs/main.c\
+			srcs/keyhooks.c\
+			
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 

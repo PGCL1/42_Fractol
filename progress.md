@@ -1,12 +1,34 @@
 							**FRACTOL**
 
+STUFF FOR TODAY:
+	- create keyhooks for exiting the window
+	- create keyhooks for move the image with keys A S D W and arrows
+
+
+
 IMPROVEMENTS:
 	- need to rewrite Makefile in libft/
 
 
 ERRORS:
 
+LEARNING:
+	To initialize the Minilib Library, we need to invoce the mlx_init function; this will enable us to connect our operating software with the minilib API.
+	Then, we need to create a window in which our project will be hosted. To ensure our program stays optimized it is recommended to create an image in which the pixels will first be rendered and then that same image will be pushed to the original window we created.
 
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	The 0, 0 is the position at which the image will be drawn within the window
+
+
+
+
+
+
+
+
+
+
+INSTRUCTIONS:
 This project’s goal is to create a small fractal exploration program. Start by seeing what a fractal is.
 
 *The constraints are as follows:*

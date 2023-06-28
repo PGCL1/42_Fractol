@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:47:14 by glacroix          #+#    #+#             */
-/*   Updated: 2023/06/27 17:32:12 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:53:10 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "../libft/libft.h"
 #include <mlx.h>
+#include <math.h>
 #include <stdio.h>
 
 /*--------------------------Makefile Colors-----------------------------------*/
@@ -32,7 +33,11 @@
 # define F_ORANGE			0XFF8000
 # define F_RED				0X990000
 # define F_LIGHT_GREEN		0XCCFFCC
- 
+
+/*---------------------------Keys Keyboard------------------------------------*/
+# define ESC				53
+
+
 typedef struct t_win {
 	int		size_x;
 	int		size_y;
@@ -41,10 +46,16 @@ typedef struct t_win {
 
 typedef struct	s_data {
 	void	*img;
+	int		height_y;
+	int		width_x;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
 }				t_data;
+
+/*--------------------------Keyhook Functions---------------------------------*/
+int		key_hook(int keycode);
+int 	mouse_hook(int button, int x, int y);
 
 #endif
