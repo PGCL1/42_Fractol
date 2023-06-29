@@ -1,7 +1,11 @@
 							**FRACTOL**
 
-STUFF FOR TODAY:
+
+DONE:
 	- create keyhooks for exiting the window
+
+
+STUFF FOR TODAY:
 	- create keyhooks for move the image with keys A S D W and arrows
 
 
@@ -19,12 +23,23 @@ LEARNING:
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	The 0, 0 is the position at which the image will be drawn within the window
 
+All keyhooks events for the minilib are
 
-
-
-
-
-
+KeyPress:			Event code: 2	 MLX_KEY_PRESS
+KeyRelease:			Event code: 3	 MLX_KEY_RELEASE
+ButtonPress:		Event code: 4	 MLX_BUTTON_PRESS
+ButtonRelease:		Event code: 5	 MLX_BUTTON_RELEASE
+MotionNotify:		Event code: 6	 MLX_MOTION_NOTIFY
+Expose:				Event code: 12	 MLX_EXPOSE
+DestroyNotify:		Event code: 17	 MLX_DESTROY_NOTIFY
+EnterNotify:		Event code: 7	 MLX_ENTER_NOTIFY
+LeaveNotify:		Event code: 8	 MLX_LEAVE_NOTIFY
+FocusIn:			Event code: 9	 MLX_FOCUS_IN
+FocusOut:			Event code: 10	 MLX_FOCUS_OUT
+ConfigureNotify:	Event code: 22	 MLX_CONFIGURE_NOTIFY
+MapNotify:			Event code: 19	 MLX_MAP_NOTIFY
+UnmapNotify:		Event code: 18	 MLX_UNMAP_NOTIFY
+ClientMessage:		Event code: 33	 MLX_CLIENT_MESSAGE
 
 
 
