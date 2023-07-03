@@ -6,6 +6,8 @@ DONE:
 
 
 STUFF FOR TODAY:
+	- create function where mandelbrot Mandelbrot or 1 can be passed as parameters or even MandeLbrot and do so for all the next fractals
+	- follow instructions from step by step in  http://warp.povusers.org/Mandelbrot/
 	- create keyhooks for move the image with keys A S D W and arrows
 
 
@@ -17,6 +19,7 @@ IMPROVEMENTS:
 ERRORS:
 
 LEARNING:
+	make use of function mlx_loop_hook() to generate fractal and constantly re-render
 	To initialize the Minilib Library, we need to invoce the mlx_init function; this will enable us to connect our operating software with the minilib API.
 	Then, we need to create a window in which our project will be hosted. To ensure our program stays optimized it is recommended to create an image in which the pixels will first be rendered and then that same image will be pushed to the original window we created.
 

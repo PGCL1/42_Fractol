@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/06/28 14:38:15 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/03 14:57:26 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ NAME		= fractol
 # **************************************************************************** #
 SRCS		= srcs/main.c\
 			srcs/keyhooks.c\
+			srcs/mandelbrot.c
 			
 
 OBJS		= $(SRCS:%.c=objs/%.o)

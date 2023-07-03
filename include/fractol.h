@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:47:14 by glacroix          #+#    #+#             */
-/*   Updated: 2023/06/29 16:33:25 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/03 15:39:15 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,21 @@
 # define F_ORANGE			0XFF8000
 # define F_RED				0X990000
 # define F_LIGHT_GREEN		0XCCFFCC
+# define F_BLACK			0X000000
 
-#define MAX_ITER			1000
-
-/*---------------------------Keys Keyboard------------------------------------*/
+/*------------------------------Shortcuts-------------------------------------*/
 # define ESC				53
+# define MAX_ITERATION		1000
 
 typedef struct t_complex {
     double real;
     double imag;
 }				t_complex;
 
-typedef struct t_win {
-	int		size_x;
-	int		size_y;
-	void	*ptr;
-}				t_win;
+typedef struct t_var {
+	void *mlx;
+	void *mlx_win;
+}				t_var;
 
 typedef struct	s_data {
 	void	*img;
@@ -62,17 +61,16 @@ typedef struct	s_data {
 }				t_data;
 
 /*--------------------------Fractol Functions---------------------------------*/
-int		juliaFractal(int x, int y);
-void	generateJuliaFractal(double startX, double startY, double endX, double endY, t_data *img);
-void	drawing_image(void *mlx, void *mlx_win, t_data *img);
-void	resize_window(t_data *img, int *x, int *y, void **mlx);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
+void	drawing_image(t_var *var, t_data *img);
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
+/* void	draw_mandelbrot_set(t_var *var, t_data *img); */
+void draw_mandelbrot_set(t_var *var, t_data *img, float left, float top, float xside, float yside);
 
 
 /*--------------------------Keyhook Functions---------------------------------*/
 int		key_hook(int keycode, t_data *img);
-int 	mouse_hook(int button, int x, int y);
-int		zoom_in(int mouse, int x, int y, t_data *img, void **mlx);
+int		mouse_hook(int button, int x, int y);
 int		ft_exit(t_data *img);
 
 #endif
