@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/04 18:10:25 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:02:47 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ typedef struct t_img {
 }				t_img;
 
 typedef struct	t_data {
-	t_mlx	mlx;
-	t_img	img;
+	t_mlx		mlx;
+	t_img		img;
+	t_complex 	c;
 }				t_data;
 
 /*--------------------------Fractol Functions---------------------------------*/
@@ -81,5 +82,9 @@ int		mouse_hook(int button, int x, int y);
 /*-2) Fractal Selection-------------------------------------------------------*/
 void	ft_islower(char *str);
 int		fractal_name(char *str);
+
+/*-2) Pixel Print-------------------------------------------------------------*/
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	generate_mandelbrot(t_data *var);
 
 #endif

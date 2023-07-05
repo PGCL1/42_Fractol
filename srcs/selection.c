@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:58:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/04 18:11:32 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:43:06 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	ft_islower(char *str)
 {
-	while (*str != '\0')
+	char *temp;
+
+	temp = str;
+	while (*temp != '\0')
 	{
-		if (*str >= 'A' && *str <= 'Z')
-			*str += 32;
-		str++;
+		if (*temp >= 'A' && *temp <= 'Z')
+			*temp += 32;
+		temp++;
 	}
 }
 

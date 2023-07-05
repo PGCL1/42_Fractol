@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/04 18:04:03 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/05 18:32:54 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ NAME		= fractol
 SRCS		= srcs/main.c\
 			srcs/keyhooks.c\
 			srcs/selection.c\
+			srcs/fractal.c\
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 
@@ -40,8 +41,8 @@ CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -Imlx
 CFLAGS		+= -I include
 CFLAGS		+= -I libft -g3
-MINI		= -L./mlx -lmlx -framework OpenGL -framework AppKit
-#DEGUB		= -g3 -fsanitize=address
+MINI		= -L./mlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
+DEGUB		= 
 
 #SRC Execution
 # **************************************************************************** #
