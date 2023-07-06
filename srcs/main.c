@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/05 19:15:23 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/06 17:54:02 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int main(int argc, char **argv)
 	
 	//initializing img dimensions and address
 	var.img.img = mlx_new_image(var.mlx.ptr, var.img.width_x, var.img.height_y);
-	printf("pointer is %p\n", var.img.img);
 	var.img.addr = mlx_get_data_addr(var.img.img, &var.img.bits_per_pixel, &var.img.line_length, &var.img.endian);
 
 	//selection of the fractal
@@ -50,11 +49,10 @@ int main(int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 		else if (*(argv + 1) && fractal_name(*(argv+1)) == 1)
-			generate_mandelbrot(&var);
+			mlx_loop_hook(var.mlx.ptr, generate_mandelbrot, &var);
 		//else if (*(argv + 1) && fractal_name(*(argv+1)) == 2)
 		//	generate_julia();
 	}
-	
 	//exit program through cross and ESC
 	mlx_hook(var.mlx.win, 17, 0, ft_exit, &var);
 	mlx_hook(var.mlx.win, 2, 0, key_hook, &var);

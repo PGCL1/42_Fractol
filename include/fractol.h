@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/05 16:02:47 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/06 17:44:06 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@
 # define WHITE  		"\x1B[37m"
 
 /*---------------------------Fractol Elements---------------------------------*/
+/*define DEMO_COLOR			0xTTRRGGBB */
 # define F_PURPLE			0X6600CC
 # define F_ORANGE			0XFF8000
-# define F_RED				0X990000
+# define F_RED				0X42990010
 # define F_LIGHT_GREEN		0XCCFFCC
 # define F_BLACK			0X000000
 # define F_WHITE			0XFFFFFF
 
 /*------------------------------Shortcuts-------------------------------------*/
 # define ESC				53
-# define MAX_ITERATION		50
 
 
 /*-----------------------------Structures-------------------------------------*/
@@ -66,9 +66,20 @@ typedef struct t_img {
 	int		endian;
 }				t_img;
 
+typedef struct t_fractol{
+	double	MinRe;
+	double	MaxRe;
+	double	MinIm;
+	double	MaxIm;
+	double	Re_factor;
+	double	Im_factor;
+	int		MaxIterations;
+}				t_fractol;
+
 typedef struct	t_data {
 	t_mlx		mlx;
 	t_img		img;
+	t_fractol	fractal;
 	t_complex 	c;
 }				t_data;
 
@@ -83,8 +94,8 @@ int		mouse_hook(int button, int x, int y);
 void	ft_islower(char *str);
 int		fractal_name(char *str);
 
-/*-2) Pixel Print-------------------------------------------------------------*/
+/*-3) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	generate_mandelbrot(t_data *var);
+int		generate_mandelbrot(t_data *var);
 
 #endif
