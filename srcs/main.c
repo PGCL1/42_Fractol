@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/06 17:54:02 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/07 15:12:48 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,18 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
+void	ft_leaks(void)
+{
+	system("leaks -q fractol");
+}
+
 int main(int argc, char **argv)
 {
-	t_data var;
+	t_data	var;
 
-	//initialization of structure
+	atexit(ft_leaks);	
 	ft_memset(&var, 0, sizeof(var));
-	
-	//initializing API connection and window
-	var.mlx.ptr = mlx_init();
-	var.mlx.height_y = 1080;
-	var.mlx.width_x = 1920;
-	var.img.height_y = var.mlx.height_y;
-	//we do var.mlx.width_x - var.mlx.width_x/3 to have it centered later will find better solution
-	var.img.width_x = var.mlx.width_x;
-	var.mlx.win = mlx_new_window(var.mlx.ptr, var.mlx.width_x, var.mlx.height_y, "G's Fractol");
-	
-	//initializing img dimensions and address
-	var.img.img = mlx_new_image(var.mlx.ptr, var.img.width_x, var.img.height_y);
-	var.img.addr = mlx_get_data_addr(var.img.img, &var.img.bits_per_pixel, &var.img.line_length, &var.img.endian);
+	init_all(&var);
 
 	//selection of the fractal
 	if (argc >= 1)

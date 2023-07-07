@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/05 18:32:54 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/07 15:12:40 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS		= srcs/main.c\
 			srcs/keyhooks.c\
 			srcs/selection.c\
 			srcs/fractal.c\
+			srcs/init.c\
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/06 17:44:06 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:35:00 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,14 @@
 
 /*------------------------------Shortcuts-------------------------------------*/
 # define ESC				53
-
+# define UP					126
+# define W					13
+# define DOWN				125
+# define S					1
+# define LEFT				123
+# define A					0 
+# define RIGHT				124
+# define D					2
 
 /*-----------------------------Structures-------------------------------------*/
 typedef struct t_complex {
@@ -85,16 +92,22 @@ typedef struct	t_data {
 
 /*--------------------------Fractol Functions---------------------------------*/
 
-/*-1) Keyhooks----------------------------------------------------------------*/
+/*-1) Init--------------------------------------------------------------------*/
+void	init_mlx(t_data *var);
+void	init_fractal(t_data *var);
+void	init_image(t_data *var);
+void	init_all(t_data *var);
+
+/*-2) Keyhooks----------------------------------------------------------------*/
 int		key_hook(int keycode, t_data *var);
 int		ft_exit(t_data *img);
 int		mouse_hook(int button, int x, int y);
 
-/*-2) Fractal Selection-------------------------------------------------------*/
+/*-3) Fractal Selection-------------------------------------------------------*/
 void	ft_islower(char *str);
 int		fractal_name(char *str);
 
-/*-3) Pixel Print-------------------------------------------------------------*/
+/*-4) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		generate_mandelbrot(t_data *var);
 

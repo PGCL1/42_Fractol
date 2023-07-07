@@ -3,12 +3,13 @@
 
 DONE:
 	- create keyhooks for exiting the window
+	- create function where mandelbrot Mandelbrot or 1 can be passed as parameters or even MandeLbrot and do so for all the next fractals
 
 
 STUFF FOR TODAY:
-	- create function where mandelbrot Mandelbrot or 1 can be passed as parameters or even MandeLbrot and do so for all the next fractals
 	- follow instructions from step by step in  http://warp.povusers.org/Mandelbrot/
 	- create keyhooks for move the image with keys A S D W and arrows
+	- print the background first and then print the mandelbrot set
 
 
 
