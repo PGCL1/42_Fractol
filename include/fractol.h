@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/07 14:35:00 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/10 14:51:18 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@
 # define A					0 
 # define RIGHT				124
 # define D					2
+# define I					34
+
 
 /*-----------------------------Structures-------------------------------------*/
 typedef struct t_complex {

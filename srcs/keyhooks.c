@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/07 14:36:10 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/10 14:55:02 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ int key_hook(int keycode, t_data *var)
 	{
 		var->fractal.MinRe -= 0.01; 
 		var->fractal.MaxRe -= 0.01;
+	}
+	else if (keycode == I)
+	{
+		printf("Iterations are %d\n", var->fractal.MaxIterations);
+		var->fractal.MaxIterations += 10;
+		if (var->fractal.MaxIterations == 260)
+			var->fractal.MaxIterations = 40;
 	}
 	return (0);
 }

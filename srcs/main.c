@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/07 15:12:48 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:30:03 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int main(int argc, char **argv)
 {
 	t_data	var;
 
-	atexit(ft_leaks);	
 	ft_memset(&var, 0, sizeof(var));
 	init_all(&var);
 
