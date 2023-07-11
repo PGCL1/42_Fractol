@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/11 17:03:55 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/11 19:24:05 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define F_LIGHT_GREEN		0XCCFFCC
 # define F_BLACK			0X000000
 # define F_WHITE			0XFFFFFF
+# define F_BLUE				0X191970
 
 /*------------------------------Shortcuts-------------------------------------*/
 # define ESC				53
