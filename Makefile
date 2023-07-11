@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/07 15:12:40 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/11 15:39:11 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ LIBFT		= libft/libft.a
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -Imlx
 CFLAGS		+= -I include
-CFLAGS		+= -I libft -g3
+CFLAGS		+= -I libft -g3 -Ofast -fmerge-all-constants
 MINI		= -L./mlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
 DEGUB		= 
 

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/10 14:51:18 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:03:55 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@
 # define A					0 
 # define RIGHT				124
 # define D					2
-# define I					34
+# define PLUS				69
+# define MINUS				78
 
 
 /*-----------------------------Structures-------------------------------------*/
@@ -89,7 +90,6 @@ typedef struct	t_data {
 	t_mlx		mlx;
 	t_img		img;
 	t_fractol	fractal;
-	t_complex 	c;
 }				t_data;
 
 /*--------------------------Fractol Functions---------------------------------*/
@@ -103,7 +103,7 @@ void	init_all(t_data *var);
 /*-2) Keyhooks----------------------------------------------------------------*/
 int		key_hook(int keycode, t_data *var);
 int		ft_exit(t_data *img);
-int		mouse_hook(int button, int x, int y);
+int		mouse_hook(int button, int x, int y, t_data *var);
 
 /*-3) Fractal Selection-------------------------------------------------------*/
 void	ft_islower(char *str);
@@ -111,6 +111,7 @@ int		fractal_name(char *str);
 
 /*-4) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	mandelbrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int *y);
 int		generate_mandelbrot(t_data *var);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:21:05 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/10 14:53:54 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:28:09 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@ void	init_mlx(t_data *var)
 {
 	//initializing API connection and window
 	var->mlx.ptr = mlx_init();
-	var->mlx.height_y = 768; //768 | 1080
-	var->mlx.width_x = 1366; //1366 | 1920
+	var->mlx.height_y = 1080; //768 | 1080
+	var->mlx.width_x = 1920; //1366 | 1920
 	var->mlx.win = mlx_new_window(var->mlx.ptr, var->mlx.width_x, var->mlx.height_y, "G's Fractol");
 }
 
 void	init_fractal(t_data *var)
 {
+	//fractal dimensions
 	var->fractal.MinRe = -(var->img.width_x/1000);
 	var->fractal.MaxRe = (var->img.width_x/1000);
 	var->fractal.MinIm = -(var->img.height_y/1000);
 	var->fractal.MaxIm = (var->img.height_y/1000);
+	printf("MinRe is %f | MaxRe is %f\nMinIm is %f | MaxIm is %f\n", var->fractal.MinRe, var->fractal.MaxRe, var->fractal.MinIm, var->fractal.MaxIm);
+	//related to zooming and out and probably middle too
 	var->fractal.Re_factor = (var->fractal.MaxRe - var->fractal.MinRe)/(var->img.width_x-1);
 	var->fractal.Im_factor = (var->fractal.MaxIm - var->fractal.MinIm)/(var->img.height_y-1);
 	var->fractal.MaxIterations = 40;

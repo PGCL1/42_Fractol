@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/08 15:30:03 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:21:23 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 	mlx_hook(var.mlx.win, 17, 0, ft_exit, &var);
 	mlx_hook(var.mlx.win, 2, 0, key_hook, &var);
 	//printing position of mouse and button pressed
-	mlx_mouse_hook(var.mlx.win, mouse_hook, (void *)0);
+	mlx_mouse_hook(var.mlx.win, mouse_hook, &var);
 	
 	mlx_loop(var.mlx.ptr);
 }

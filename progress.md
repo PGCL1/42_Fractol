@@ -10,6 +10,8 @@ DONE:
 STUFF FOR TODAY:
 	- follow instructions from step by step in  http://warp.povusers.org/Mandelbrot/
 	- print the background first and then print the mandelbrot set
+	- create the colors shading for the fractal
+	- program the zoom with the mouse
 
 
 
