@@ -2,16 +2,19 @@
 
 
 DONE:
-	- create keyhooks for exiting the window
-	- create function where mandelbrot Mandelbrot or 1 can be passed as parameters or even MandeLbrot and do so for all the next fractals
-	- create keyhooks for move the image with keys A S D W and arrows
+	- created keyhooks for exiting the window
+	- created function where mandelbrot Mandelbrot or 1 can be passed as parameters or even MandeLbrot and do so for all the next fractals
+	- created keyhooks for move the image with keys A S D W and arrows
+	- created the zoom functions
+	- created different shading
 
 
 STUFF FOR TODAY:
 	- follow instructions from step by step in  http://warp.povusers.org/Mandelbrot/
 	- print the background first and then print the mandelbrot set
-	- create the colors shading for the fractal
-	- program the zoom with the mouse
+	- create the colors shading for the fractal depending on n iterations
+	- program the zoom to follow the mouse
+
 
 
 
