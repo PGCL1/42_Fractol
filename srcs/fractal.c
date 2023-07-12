@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:11:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/12 14:47:07 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:58:12 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,5 @@ void	mandelbrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int *
     else */ if (i == 0)
 		my_mlx_pixel_put(&var->img, *x, *y, F_RED);
 }
+
+int generate_julia(t_data *var);

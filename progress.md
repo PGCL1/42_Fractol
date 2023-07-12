@@ -12,6 +12,7 @@ DONE:
 STUFF FOR TODAY:
 	- create the colors shading for the fractal depending on n iterations
 	- program the zoom to follow the mouse
+	- create the Julia set
 
 
 

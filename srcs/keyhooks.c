@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/12 16:45:40 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:45:28 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,23 @@ int key_hook(int keycode, t_data *var)
 		ft_exit(var);
 	else if (keycode == W || keycode == UP)
 	{
-		var->fractal.MinIm -= (var->fractal.MinIm * (10*var->fractal.Im_factor));
-		var->fractal.MaxIm -= (var->fractal.MaxIm * (10*var->fractal.Im_factor));
-		printf("MinIm is %f | MaxIm is %f\n", var->fractal.MinIm, var->fractal.MaxIm);
+		var->fractal.MinIm -= (var->fractal.MinIm * (10 * var->fractal.Im_factor));
+		var->fractal.MaxIm -= (var->fractal.MaxIm * (10 * var->fractal.Im_factor));
 	}
 	else if (keycode == S || keycode == DOWN)
 	{
-		var->fractal.MaxIm += (var->fractal.MaxIm * (10*var->fractal.Im_factor));
-		var->fractal.MinIm += (var->fractal.MinIm * (10*var->fractal.Im_factor));
+		var->fractal.MaxIm += (var->fractal.MaxIm * (10 * var->fractal.Im_factor));
+		var->fractal.MinIm += (var->fractal.MinIm * (10 * var->fractal.Im_factor));
 	}
 	else if (keycode == A || keycode == LEFT)
 	{
-		var->fractal.MinRe -= (var->fractal.MinRe * (8*var->fractal.Re_factor)); 
-		var->fractal.MaxRe -= (var->fractal.MaxRe * (8*var->fractal.Re_factor));
+		var->fractal.MinRe -= (var->fractal.MinRe * (8 * var->fractal.Re_factor)); 
+		var->fractal.MaxRe -= (var->fractal.MaxRe * (8 * var->fractal.Re_factor));
 	}
 	else if (keycode == D || keycode == RIGHT)
 	{
-		var->fractal.MinRe += (var->fractal.MinRe * (8*var->fractal.Re_factor));
-		var->fractal.MaxRe += (var->fractal.MaxRe * (8*var->fractal.Re_factor));
+		var->fractal.MinRe += (var->fractal.MinRe * (8 * var->fractal.Re_factor));
+		var->fractal.MaxRe += (var->fractal.MaxRe * (8 * var->fractal.Re_factor));
 	}
 	else if (keycode == PLUS)
 	{

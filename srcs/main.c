@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/11 12:21:23 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:58:38 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int main(int argc, char **argv)
 		}
 		else if (*(argv + 1) && fractal_name(*(argv+1)) == 1)
 			mlx_loop_hook(var.mlx.ptr, generate_mandelbrot, &var);
-		//else if (*(argv + 1) && fractal_name(*(argv+1)) == 2)
-		//	generate_julia();
+/* 		else if (*(argv + 1) && fractal_name(*(argv+1)) == 2)
+			mlx_loop_hook(var.mlx.ptr, generate_julia, &var); */
 	}
 	//exit program through cross and ESC
 	mlx_hook(var.mlx.win, 17, 0, ft_exit, &var);
