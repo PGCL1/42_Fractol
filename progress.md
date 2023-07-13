@@ -6,13 +6,13 @@ DONE:
 	- created function where mandelbrot Mandelbrot or 1 can be passed as parameters or even MandeLbrot and do so for all the next fractals
 	- created keyhooks for move the image with keys A S D W and arrows and added incrementing proportionally during zooming
 	- created the zoom functions
-	- created different shading
+	- created the colors shading for the fractal depending on n iterations
 
 
 STUFF FOR TODAY:
-	- create the colors shading for the fractal depending on n iterations
-	- program the zoom to follow the mouse
+	- create the zoom to follow the mouse (linear interpolation)
 	- create the Julia set
+	- create a second image to smooth out the rendering
 
 
 

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/13 17:27:12 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:44:20 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int key_hook(int keycode, t_data *var)
 	{
 //		printf("Iterations are %d\n", var->fractal.MaxIterations);
 		var->fractal.MaxIterations -= 10;
-		if (var->fractal.MaxIterations == 0)
+		if (var->fractal.MaxIterations == 10)
 			var->fractal.MaxIterations = 10;
 	}
 	else if (keycode == C)
 	{
-		int array[5] = {F_RED, F_BLUE, F_ORANGE, F_PURPLE, F_LIGHT_GREEN};
+		int array[5] = {F_RED, F_BLUE, F_ORANGE, F_PURPLE, F_GREEN};
 		if (var->fractal.test == 5)
 			var->fractal.test = 0;
 		var->fractal.color = array[var->fractal.test++];
@@ -71,8 +71,6 @@ int ft_exit(t_data *img)
 int mouse_hook(int button, int x, int y, t_data *var)
 {
 	//find values to keep center
-	(void)x;
-	(void)y;
 	printf("%d | screen(x = %d, y = %d)\n", button, x, y);
 	if (button == 4)
 	{
@@ -88,9 +86,5 @@ int mouse_hook(int button, int x, int y, t_data *var)
 		var->fractal.Im_factor += var->fractal.Im_factor * 0.05;
 //		printf("Re_factor is %f | Im_factor is %f\n", var->fractal.Re_factor, var->fractal.Im_factor);
 	}
-/* 	else if (button == 1)
-	{
-		
-	} */
 	return (0);
 }

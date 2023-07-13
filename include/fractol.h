@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/13 17:26:54 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:14:07 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 
 /*---------------------------Fractol Elements---------------------------------*/
 /*define DEMO_COLOR			0xTTRRGGBB */
-# define F_PURPLE			0X6600CC
-# define F_ORANGE			0XFF8000
+# define F_PURPLE			0X660080
+# define F_ORANGE			0XFFDE5C
 # define F_RED				0X42990010
-# define F_LIGHT_GREEN		0XCCFFCC
+# define F_GREEN			0X014421 
 # define F_BLACK			0X000000
 # define F_WHITE			0XFFFFFF
 # define F_BLUE				0X191970
@@ -115,7 +115,7 @@ int		fractal_name(char *str);
 
 /*-4) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	mandelbrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int *y);
 int		generate_mandelbrot(t_data *var);
+void	print_iterations(t_data *var);
 
 #endif

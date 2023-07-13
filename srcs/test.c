@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:59:20 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/13 15:45:18 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:50:28 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int main(int argc, char **argv)
 		}
 	}
 	mlx_put_image_to_window(test.mlx.ptr, test.mlx.win, test.img.img, 0, 0);
+	mlx_string_put(test.mlx.ptr, test.mlx.win, 20, 20, F_BLACK, "Iterations");
 	mlx_hook(test.mlx.win, 17, 0, ft_exit, &test);
 	//loop for continuous rendering
 	mlx_loop(test.mlx.ptr);

@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/11 19:11:36 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/13 19:16:48 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS		= srcs/main.c\
 			srcs/selection.c\
 			srcs/fractal.c\
 			srcs/init.c\
+			srcs/legend.c\
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 
@@ -42,7 +43,7 @@ CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -Imlx
 CFLAGS		+= -I include
 CFLAGS		+= -I libft -g3 -O2 -DSTRINGPUTX11
-MINI		= -L./mlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
+MINI		= -L./mlx -lmlx -framework OpenGL -framework AppKit -g3 #-fsanitize=address
 DEGUB		= 
 
 #SRC Execution
