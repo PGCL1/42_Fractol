@@ -6,11 +6,18 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:59:20 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/12 19:46:06 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:45:18 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+
+int ft_exit(t_data *img)
+{
+	(void)img;
+	ft_putstr_fd("Exited G's Fractol\n", 1);
+	exit(EXIT_SUCCESS);
+}
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
@@ -41,12 +48,11 @@ int main(int argc, char **argv)
 	{
 		for (int x = 0; x < test.img.width_x - 1; ++x)
 		{
-/* 			for (int i = 0; i < 16; ++i) */
-			my_mlx_pixel_put(&test.img, x, y, F_RED >> 16);
+			my_mlx_pixel_put(&test.img, x, y, F_RED>>3);
 		}
 	}
 	mlx_put_image_to_window(test.mlx.ptr, test.mlx.win, test.img.img, 0, 0);
-	
+	mlx_hook(test.mlx.win, 17, 0, ft_exit, &test);
 	//loop for continuous rendering
 	mlx_loop(test.mlx.ptr);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/11 19:24:05 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 17:26:54 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define F_WHITE			0XFFFFFF
 # define F_BLUE				0X191970
 
+
 /*------------------------------Shortcuts-------------------------------------*/
 # define ESC				53
 # define UP					126
@@ -52,7 +53,7 @@
 # define D					2
 # define PLUS				69
 # define MINUS				78
-
+# define C					8
 
 /*-----------------------------Structures-------------------------------------*/
 typedef struct t_complex {
@@ -84,7 +85,9 @@ typedef struct t_fractol{
 	double	MaxIm;
 	double	Re_factor;
 	double	Im_factor;
+	int		color;
 	int		MaxIterations;
+	int		test;
 }				t_fractol;
 
 typedef struct	t_data {

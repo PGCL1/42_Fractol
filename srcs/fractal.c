@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:11:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/12 18:58:12 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:13:51 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,10 @@ void	mandelbrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int *
         Z->imag = 2*Z->real*Z->imag + c->imag;
         Z->real = Z_re2 - Z_im2 + c->real;
     }
-	my_mlx_pixel_put(&var->img, *x, *y, F_ORANGE);
-	/* if (i == 1 && n > 20)
-		my_mlx_pixel_put(&var->img, *x, *y, shift color function);
-    else */ if (i == 0)
-		my_mlx_pixel_put(&var->img, *x, *y, F_RED);
+	my_mlx_pixel_put(&var->img, *x, *y, var->fractal.color * n);
+/* 	printf("%d\n" , n); */
+	if (i == 0)
+		my_mlx_pixel_put(&var->img, *x, *y, F_BLACK);
 }
 
 int generate_julia(t_data *var);

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/12 18:45:28 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/13 17:27:12 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int key_hook(int keycode, t_data *var)
 {
-//	printf("Keycode is %d\n", keycode);
+	printf("Keycode is %d\n", keycode);
 	if (keycode == ESC)
 		ft_exit(var);
 	else if (keycode == W || keycode == UP)
 	{
-		var->fractal.MinIm -= (var->fractal.MinIm * (10 * var->fractal.Im_factor));
-		var->fractal.MaxIm -= (var->fractal.MaxIm * (10 * var->fractal.Im_factor));
+		var->fractal.MinIm -= (var->fractal.MinIm * 0.01);
+		var->fractal.MaxIm -= (var->fractal.MaxIm * 0.01);
 	}
 	else if (keycode == S || keycode == DOWN)
 	{
-		var->fractal.MaxIm += (var->fractal.MaxIm * (10 * var->fractal.Im_factor));
-		var->fractal.MinIm += (var->fractal.MinIm * (10 * var->fractal.Im_factor));
+		var->fractal.MaxIm += (var->fractal.MaxIm * 0.01);
+		var->fractal.MinIm += (var->fractal.MinIm * 0.01);
 	}
 	else if (keycode == A || keycode == LEFT)
 	{
@@ -51,6 +51,13 @@ int key_hook(int keycode, t_data *var)
 		if (var->fractal.MaxIterations == 0)
 			var->fractal.MaxIterations = 10;
 	}
+	else if (keycode == C)
+	{
+		int array[5] = {F_RED, F_BLUE, F_ORANGE, F_PURPLE, F_LIGHT_GREEN};
+		if (var->fractal.test == 5)
+			var->fractal.test = 0;
+		var->fractal.color = array[var->fractal.test++];
+	}		
 	return (0);
 }
 
