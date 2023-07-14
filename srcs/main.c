@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/13 19:07:48 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:50:55 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main(int argc, char **argv)
 
 	ft_memset(&var, 0, sizeof(var));
 	init_all(&var);
-
 	atexit(ft_leaks);
 	//selection of the fractal
 	if (argc >= 1)

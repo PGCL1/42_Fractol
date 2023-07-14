@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/13 19:14:07 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:27:46 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct t_fractol{
 	double	Im_factor;
 	int		color;
 	int		MaxIterations;
+	double	zoom;
 	int		test;
 }				t_fractol;
 
