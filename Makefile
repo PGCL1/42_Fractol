@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/13 19:16:48 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/17 18:51:02 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,25 @@ NAME		= fractol
 SRCS		= srcs/main.c\
 			srcs/keyhooks.c\
 			srcs/selection.c\
-			srcs/fractal.c\
+			srcs/mandelbrot.c\
+			srcs/julia.c\
 			srcs/init.c\
 			srcs/legend.c\
+			srcs/multibrot.c\
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 
+BANNER= $(info @@@@@@@@  @@@@@@@    @@@@@@    @@@@@@@  @@@@@@@              @@@@@@   @@@) \
+        $(info @@@@@@@@  @@@@@@@    @@@@@@    @@@@@@@  @@@@@@@              @@@@@@   @@@) \
+        $(info @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@             @@@@@@@@  @@@) \
+        $(info @@!       @@!  @@@  @@!  @@@  !@@         @@!               @@!  @@@  @@!) \
+        $(info !@!       !@!  @!@  !@!  @!@  !@!         !@!               !@!  @!@  !@!) \
+        $(info @!!!:!    @!@!!@!   @!@!@!@!  !@!         @!!    @!@!@!@!@  @!@  !@!  @!!) \
+        $(info !!!!!:    !!@!@!    !!!@!!!!  !!!         !!!    !!!@!@!!!  !@!  !!!  !!!) \
+        $(info !!:       !!: :!!   !!:  !!!  :!!         !!:               !!:  !!!  !!:) \
+        $(info :!:       :!:  !:!  :!:  !:!  :!:         :!:               :!:  !:!   :!:) \
+        $(info  ::       ::   :::  ::   :::   ::: :::     ::               ::::: ::   :: ::::)  \
+        $(info  :         :   : :   :   : :   :: :: :     :                 : :  :   : :: : )\
 #Execution
 # **************************************************************************** #
 LIBFT		= libft/libft.a
@@ -52,7 +65,7 @@ ${NAME}: objs ${OBJS}
 	@echo $(YELLOW) "\n .........Compiling lib.........\n" $(RESET)
 	@make -sC libft
 	@$(CC) $(OBJS) $(LIBFT) $(MINI) -o $(NAME)
-	@echo $(GREEN) "\n         Fractol Compiled!       \n" $(RESET)
+	@echo $(GREEN) "\n         Fractol Compiled!       \n" $(RESET) $(BANNER)
 
 #Makefile Cmds
 # **************************************************************************** #

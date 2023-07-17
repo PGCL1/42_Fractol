@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/14 18:50:55 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:05:04 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
 	ft_memset(&var, 0, sizeof(var));
 	init_all(&var);
-	atexit(ft_leaks);
+/* 	atexit(ft_leaks); */
 	//selection of the fractal
 	if (argc >= 1)
 	{
@@ -42,8 +42,10 @@ int main(int argc, char **argv)
 		}
 		else if (*(argv + 1) && fractal_name(*(argv+1)) == 1)
 			mlx_loop_hook(var.mlx.ptr, generate_mandelbrot, &var);
-/* 		else if (*(argv + 1) && fractal_name(*(argv+1)) == 2)
-			mlx_loop_hook(var.mlx.ptr, generate_julia, &var); */
+		else if (*(argv + 1) && fractal_name(*(argv+1)) == 2)
+			mlx_loop_hook(var.mlx.ptr, generate_julia, &var);
+		else if (*(argv + 1) && fractal_name(*(argv+1)) == 3)
+			mlx_loop_hook(var.mlx.ptr, generate_multibrot, &var);
 	}
 	//exit program through cross and ESC
 	mlx_hook(var.mlx.win, 17, 0, ft_exit, &var);

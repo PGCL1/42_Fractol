@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/14 18:44:42 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:01:37 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,38 @@
 int key_hook(int keycode, t_data *var)
 {
 	printf("Keycode is %d\n", keycode);
+	var->fractal.Im_center = var->fractal.MinIm - var->fractal.MaxIm;
+	var->fractal.Re_center = var->fractal.MinRe - var->fractal.MaxRe;
 	if (keycode == ESC)
 		ft_exit(var);
 	else if (keycode == W || keycode == UP)
 	{
-		var->fractal.MinIm -= (var->fractal.MinIm * (var->fractal.Im_factor * 20));
-		var->fractal.MaxIm -= (var->fractal.MaxIm * (var->fractal.Im_factor * 20));
+		var->fractal.MinIm += var->fractal.Im_center * (var->fractal.Im_factor * 20);
+		var->fractal.MaxIm += var->fractal.Im_center * (var->fractal.Im_factor * 20);
 	}
 	else if (keycode == S || keycode == DOWN)
 	{
-		var->fractal.MaxIm += (var->fractal.MaxIm * (var->fractal.Im_factor * 20));
-		var->fractal.MinIm += (var->fractal.MinIm * (var->fractal.Im_factor * 20));
+		var->fractal.MaxIm -= var->fractal.Im_center * (var->fractal.Im_factor * 20);
+		var->fractal.MinIm -= var->fractal.Im_center * (var->fractal.Im_factor * 20);
 	}
 	else if (keycode == A || keycode == LEFT)
 	{
-		var->fractal.MinRe -= (var->fractal.MinRe * (8 * var->fractal.Re_factor)); 
-		var->fractal.MaxRe -= (var->fractal.MaxRe * (8 * var->fractal.Re_factor));
+		var->fractal.MinRe -= var->fractal.Re_center * (var->fractal.Re_factor * 8); 
+		var->fractal.MaxRe -= var->fractal.Re_center * (var->fractal.Re_factor * 8);
 	}
 	else if (keycode == D || keycode == RIGHT)
 	{
-		var->fractal.MinRe += (var->fractal.MinRe * (8 * var->fractal.Re_factor));
-		var->fractal.MaxRe += (var->fractal.MaxRe * (8 * var->fractal.Re_factor));
+		var->fractal.MinRe += var->fractal.Re_center * (var->fractal.Re_factor * 8);
+		var->fractal.MaxRe += var->fractal.Re_center * (var->fractal.Re_factor * 8);
 	}
 	else if (keycode == PLUS)
 	{
-//		printf("Iterations are %d\n", var->fractal.MaxIterations);
 		var->fractal.MaxIterations += 10;
 		if (var->fractal.MaxIterations == 310)
 			var->fractal.MaxIterations = 10;
 	}
 	else if (keycode == MINUS)
 	{
-//		printf("Iterations are %d\n", var->fractal.MaxIterations);
 		var->fractal.MaxIterations -= 10;
 		if (var->fractal.MaxIterations == 0)
 			var->fractal.MaxIterations = 10;
@@ -57,7 +57,13 @@ int key_hook(int keycode, t_data *var)
 		if (var->fractal.test == 5)
 			var->fractal.test = 0;
 		var->fractal.color = array[var->fractal.test++];
-	}		
+	}
+/* 	else if (keycode == 47)
+	{
+		t_complex c;
+		if (var->fractal.test == 8)
+			var->fractal.test == 0;
+	} */
 	return (0);
 }
 
@@ -76,16 +82,7 @@ int mouse_hook(int button, int x, int y, t_data *var)
 	(void)x;
 	if (button == 4)
 	{
-		//normally -= Refactor
-		//printf("zooming in\n");
-		//formula is (y0 - y)/(x0-x);
-/* 		printf("x/1000 is %f\n", (double)x/1000);
-		var->fractal.Re_factor -= (var->fractal.MaxRe - var->fractal.MinRe - (double)x/1000) *0.05;
-		var->fractal.Im_factor -= (0 - (double)y/1000) *0.05;
 		
-		printf("ReFactor is%f | ImFactor is %f\n", var->fractal.Re_factor, var->fractal.Im_factor); */
-		var->fractal.Re_factor -= var->fractal.Re_factor * 0.05;
-		var->fractal.Im_factor -= var->fractal.Im_factor * 0.05;
 	}
 	else if (button == 5)
 	{
@@ -96,3 +93,36 @@ int mouse_hook(int button, int x, int y, t_data *var)
 	}
 	return (0);
 }
+
+
+/*
+void	mouse_zoom(t_data *data, double zoom, int x, int y)
+{
+	double	normalized_radius_re;
+	double	normalized_radius_im;
+	double	delta_x;
+	double	delta_y;
+
+	data->norm_x = data->max_re + ((double)(WIDTH - x) *(data->min_re
+				- data->max_re) / WIDTH);
+	data->norm_y = data->max_im + ((double)y * (data->min_im
+				- data->max_im) / HEIGHT);
+	data->center_im = ((data->max_im - data->min_im) / 2) + data->min_im;
+	data->center_re = ((data->max_re - data->min_re) / 2) + data->min_re;
+	normalized_radius_re = data->max_re - data->center_re;
+	normalized_radius_im = data->max_im - data->center_im;
+	delta_x = (data->norm_x - data->center_re);
+	delta_y = (data->norm_y - data->center_im);
+	normalized_radius_re *= zoom;
+	normalized_radius_im *= zoom;
+	delta_x *= zoom;
+	delta_y *= zoom;
+	data->center_re = data->norm_x - delta_x;
+	data->center_im = data->norm_y - delta_y;
+	data->max_re = normalized_radius_re + data->center_re;
+	data->min_re = data->center_re - normalized_radius_re;
+	data->max_im = normalized_radius_im + data->center_im;
+	data->min_im = data->center_im - normalized_radius_im;
+}
+
+*/

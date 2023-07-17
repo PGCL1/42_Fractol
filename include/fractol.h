@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/14 17:27:46 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:04:23 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,11 @@ typedef struct t_img {
 typedef struct t_fractol{
 	double	MinRe;
 	double	MaxRe;
+	double	Re_center;
+	double	Re_factor;
 	double	MinIm;
 	double	MaxIm;
-	double	Re_factor;
+	double	Im_center;
 	double	Im_factor;
 	int		color;
 	int		MaxIterations;
@@ -113,10 +115,12 @@ int		mouse_hook(int button, int x, int y, t_data *var);
 /*-3) Fractal Selection-------------------------------------------------------*/
 void	ft_islower(char *str);
 int		fractal_name(char *str);
+int		generate_mandelbrot(t_data *var);
+int		generate_julia(t_data *var);
+int		generate_multibrot(t_data *var);
 
 /*-4) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-int		generate_mandelbrot(t_data *var);
 void	print_iterations(t_data *var);
 
 #endif

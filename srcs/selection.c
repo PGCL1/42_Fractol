@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:58:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/14 18:53:05 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:05:29 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	fractal_name(char *str)
 	else if (!ft_strncmp(str, "julia", ft_strlen(str) + 1)
 		|| !ft_strncmp(str, "2", 2))
 		return (2);
+	else if (!ft_strncmp(str, "multibrot", ft_strlen(str) + 1)
+		|| !ft_strncmp(str, "3", 2))
+		return (3);
 	/*else if add other fractals*/
 	return (0);
 }
