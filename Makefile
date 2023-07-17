@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/17 18:51:02 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/17 22:58:13 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ ${NAME}: objs ${OBJS}
 	@echo $(YELLOW) "\n .........Compiling lib.........\n" $(RESET)
 	@make -sC libft
 	@$(CC) $(OBJS) $(LIBFT) $(MINI) -o $(NAME)
-	@echo $(GREEN) "\n         Fractol Compiled!       \n" $(RESET) $(BANNER)
+	@echo $(GREEN) "\n         Fractol Compiled!       \n" $(RESET)
 
 #Makefile Cmds
 # **************************************************************************** #
@@ -75,7 +75,7 @@ objs:
 objs/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
-all: $(NAME)
+all: $(NAME) $(BANNER)
 
 clean:
 	@make clean -sC libft

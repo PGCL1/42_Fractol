@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 21:13:54 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:57:03 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 /*---------------------------Fractol Elements---------------------------------*/
 /*define DEMO_COLOR			0xTTRRGGBB */
-# define F_PURPLE			0X660080
+# define F_PURPLE			0XF4ECF7 
 # define F_ORANGE			0XFFDE5C
 # define F_RED				0X42990010
 # define F_GREEN			0X014421 

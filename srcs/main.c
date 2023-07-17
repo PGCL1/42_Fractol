@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 21:39:39 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 23:13:22 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 void	ft_leaks(void)
 {
 	system("leaks -q fractol");
+/* 	atexit(ft_leaks); */
 }
 
 int main(int argc, char **argv)
@@ -30,7 +31,6 @@ int main(int argc, char **argv)
 	t_data	var;
 	ft_memset(&var, 0, sizeof(var));
 	init_all(&var);
-/* 	atexit(ft_leaks); */
 	//selection of the fractal
 	if (argc >= 1)
 	{
@@ -51,6 +51,5 @@ int main(int argc, char **argv)
 	mlx_hook(var.mlx.win, 2, 0, key_hook, &var);
 	//printing position of mouse and button pressed
 	mlx_mouse_hook(var.mlx.win, mouse_hook, &var);
-	
 	mlx_loop(var.mlx.ptr);
 }
