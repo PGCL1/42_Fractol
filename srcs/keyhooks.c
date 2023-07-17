@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 17:01:37 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:47:37 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int key_hook(int keycode, t_data *var)
 {
-	printf("Keycode is %d\n", keycode);
+	//printf("Keycode is %d\n", keycode);
 	var->fractal.Im_center = var->fractal.MinIm - var->fractal.MaxIm;
 	var->fractal.Re_center = var->fractal.MinRe - var->fractal.MaxRe;
 	if (keycode == ESC)
@@ -53,17 +53,17 @@ int key_hook(int keycode, t_data *var)
 	}
 	else if (keycode == C)
 	{
-		int array[5] = {F_RED, F_BLUE, F_ORANGE, F_PURPLE, F_GREEN};
+		int array[5] = {F_WHITE, F_BLUE, F_ORANGE, F_PURPLE, F_GREEN};
 		if (var->fractal.test == 5)
 			var->fractal.test = 0;
 		var->fractal.color = array[var->fractal.test++];
 	}
-/* 	else if (keycode == 47)
+	else if (keycode == 3)
 	{
-		t_complex c;
-		if (var->fractal.test == 8)
-			var->fractal.test == 0;
-	} */
+		if (var->fractal.index == 8)
+			var->fractal.index = 0;
+		var->fractal.index++;
+	}
 	return (0);
 }
 
@@ -82,7 +82,8 @@ int mouse_hook(int button, int x, int y, t_data *var)
 	(void)x;
 	if (button == 4)
 	{
-		
+		var->fractal.Re_factor -= var->fractal.Re_factor * 0.05;
+		var->fractal.Im_factor -= var->fractal.Im_factor * 0.05;
 	}
 	else if (button == 5)
 	{

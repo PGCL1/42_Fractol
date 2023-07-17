@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:59:03 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 18:37:53 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:51:18 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 
 static void	multibrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int *y)
 {
-	double Z_re_k;
-    double Z_im_k;
+	double Z_re2;
+    double Z_im2;
 	int i = 0;
 	int n = 0;
 	while (++n < var->fractal.MaxIterations)
     {
-		Z_re_k = Z->real*Z->real*Z->real*Z->real;
-		Z_im_k = Z->imag*Z->imag*Z->imag*Z->imag;
-        if(Z_re_k + Z_im_k > 4)
+		Z_re2 = Z->real * Z->real;
+		Z_im2 = Z->imag * Z->imag;
+        if(Z_re2 + Z_im2 > 4)
         {
             i = 1;
             break;
         }
-        Z->real = Z_re_k - 6*(Z->real*Z->real)*(Z->imag*Z->imag) + Z_im_k + c->real;
-        Z->imag = (4*Z_re_k*Z->imag - 4*Z->real*Z_im_k) * c->imag;
+        Z->imag = 4*Z->real*Z->imag + c->imag;
+        Z->real = (Z_re2*Z_re2 - Z_im2*Z_im2) + c->real;
     }
 	my_mlx_pixel_put(&var->img, *x, *y, var->fractal.color * n);
 	if (i == 0)
 		my_mlx_pixel_put(&var->img, *x, *y, F_BLACK);
 }
-
-//(a + i)3 = a3 + 3a2i + 3ai2 + i3
 
 int generate_multibrot(t_data *var)
 {	

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 17:04:23 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:13:54 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define F_RED				0X42990010
 # define F_GREEN			0X014421 
 # define F_BLACK			0X000000
-# define F_WHITE			0XFFFFFF
+# define F_WHITE			0XFFF5EE
 # define F_BLUE				0X191970
 
 
@@ -91,6 +91,7 @@ typedef struct t_fractol{
 	int		MaxIterations;
 	double	zoom;
 	int		test;
+	int		index;
 }				t_fractol;
 
 typedef struct	t_data {

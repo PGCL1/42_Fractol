@@ -8,12 +8,12 @@ DONE:
 	- created the zoom functions
 	- created the colors shading for the fractal depending on n iterations
 	- create the Julia set
+	- create julia set with increments in c (need to rethink structures)
 
 
 STUFF FOR TODAY:
 	- create the zoom to follow the mouse (linear interpolation)
 	- create a second image to smooth out the rendering
-	- create julia set with increments in c (need to rethink structures)
 	- polish multibrot as the current function is not the desired shape
 	- find out to sleep the banner in makefile
 

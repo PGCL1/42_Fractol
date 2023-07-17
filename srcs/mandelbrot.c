@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:11:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 18:37:22 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:46:10 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	mandelbrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x
             i = 1;
             break;
         }
-        Z->real = Z_re2 - Z_im2 + c->real;
         Z->imag = 2*Z->real*Z->imag + c->imag;
+        Z->real = Z_re2 - Z_im2 + c->real;
     }
 	my_mlx_pixel_put(&var->img, *x, *y, var->fractal.color * n);
 	if (i == 0)
@@ -60,9 +60,3 @@ int generate_mandelbrot(t_data *var)
 	print_iterations(var);
 	return (0);
 }
-
-
-/* int generate_julia(t_data *var)
-{
-	
-} */
