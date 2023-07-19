@@ -16,6 +16,7 @@ STUFF FOR TODAY:
 	- create a second image to smooth out the rendering
 	- polish multibrot as the current function is not the desired shape
 	- find out to sleep the banner in makefile
+	- create atof for char to double to be able to parse the numbers for the julia set
 
 
 

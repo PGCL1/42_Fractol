@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/17 22:58:13 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/18 22:20:52 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ objs:
 objs/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
-all: $(NAME) $(BANNER)
+all: $(NAME) #$(BANNER)
 
 clean:
 	@make clean -sC libft

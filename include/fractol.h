@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 21:57:03 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/19 19:29:38 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,21 @@ typedef struct t_img {
 }				t_img;
 
 typedef struct t_fractol{
-	double	MinRe;
-	double	MaxRe;
-	double	Re_center;
-	double	Re_factor;
-	double	MinIm;
-	double	MaxIm;
-	double	Im_center;
-	double	Im_factor;
-	int		color;
-	int		MaxIterations;
-	double	zoom;
-	int		test;
-	int		index;
+	double		MinRe;
+	double		MaxRe;
+	double		Re_center;
+	double		Re_factor;
+	double		MinIm;
+	double		MaxIm;
+	double		Im_center;
+	double		Im_factor;
+	int			color;
+	int			MaxIterations;
+	double		zoom;
+	int			test;
+	int			index;
+	int			type;
+	t_complex	c;
 }				t_fractol;
 
 typedef struct	t_data {
@@ -115,7 +117,8 @@ int		mouse_hook(int button, int x, int y, t_data *var);
 
 /*-3) Fractal Selection-------------------------------------------------------*/
 void	ft_islower(char *str);
-int		fractal_name(char *str);
+int		fractal_name(char *str, t_data *var);
+int		generate_fractal(t_data *var);
 int		generate_mandelbrot(t_data *var);
 int		generate_julia(t_data *var);
 int		generate_multibrot(t_data *var);

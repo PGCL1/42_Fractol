@@ -6,13 +6,13 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:17:43 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 20:57:19 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/19 20:39:11 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-static void	julia_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int *y)
+static void	julia_in_or_out(t_data *var, t_complex *Z, int *x, int *y)
 {
 	double Z_re2;
     double Z_im2;
@@ -27,16 +27,17 @@ static void	julia_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x, int
             i = 1;
             break;
         }
-        Z->imag = 2*Z->real*Z->imag + c->imag;
-        Z->real = Z_re2 - Z_im2 + c->real;
+        Z->imag = 2*Z->real*Z->imag + var->fractal.c.imag;
+        Z->real = Z_re2 - Z_im2 + var->fractal.c.real;
     }
 	my_mlx_pixel_put(&var->img, *x, *y, var->fractal.color * n);
 	if (i == 0)
 		my_mlx_pixel_put(&var->img, *x, *y, F_BLACK);
 }
 
-static double julia_set_im(t_complex *c, int i)
+/* static double julia_set_im(t_complex *c, int i)
 {
+	
 	if (i == 1)
 		c->imag = 0;
 	else if (i == 2)
@@ -74,26 +75,26 @@ static double julia_set_re(t_complex *c, int i)
 	else
 		c->real = 0;
 	return (c->real);	
-}
+} */
 
 int generate_julia(t_data *var)
 {
 	int y;
 	int x;
 	t_complex Z;
-	t_complex c;
-
+/* 	t_complex c; */
+	printf("c.real is %f and c.imag is %f for Julia set\n", var->fractal.c.real, var->fractal.c.imag);
 	y = 0;
 	while (++y < var->img.height_y - 1)
 	{
-		c.imag = julia_set_im(&c, var->fractal.index);
+/* 		c.imag = julia_set_im(&c, var->fractal.index); */
 		x = 0;
     	while (++x < var->img.width_x - 1)
     	{
-    	    c.real = julia_set_re(&c, var->fractal.index);
+    /* 	    c.real = julia_set_re(&c, var->fractal.index); */
     	    Z.real = var->fractal.MinRe + x * var->fractal.Re_factor;
 			Z.imag = var->fractal.MaxIm - y * var->fractal.Im_factor;
-    	    julia_in_or_out(var, &Z, &c, &x, &y);
+    	    julia_in_or_out(var, &Z, &x, &y);
     	}
 	}
 	mlx_put_image_to_window(var->mlx.ptr, var->mlx.win, var->img.img, 0, 0);

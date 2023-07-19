@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:11:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 21:46:10 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/18 22:25:26 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	mandelbrot_in_or_out(t_data *var, t_complex *Z, t_complex *c, int *x
 	if (i == 0)
 		my_mlx_pixel_put(&var->img, *x, *y, F_BLACK);
 }
+
 
 int generate_mandelbrot(t_data *var)
 {	
