@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 17:42:12 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 21:50:09 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 # define MINUS				78
 # define C					8
 # define F					3
+# define ZOOM				0.95
 
 /*-----------------------------Structures-------------------------------------*/
 typedef struct t_complex {

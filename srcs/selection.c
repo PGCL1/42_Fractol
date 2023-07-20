@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:58:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/19 19:24:55 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 20:58:37 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_islower(char *str)
 int	fractal_name(char *str, t_data *var)
 {
 	ft_islower(str);
-	printf("fractal name is [%s]\n", str);
 	if (!ft_strncmp(str, "mandelbrot", ft_strlen(str) + 1)
 		|| !ft_strncmp(str, "1", 2))
 		var->fractal.type = 1;

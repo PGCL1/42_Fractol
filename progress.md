@@ -9,15 +9,15 @@ DONE:
 	- created the colors shading for the fractal depending on n iterations
 	- create the Julia set
 	- create julia set with increments in c (need to rethink structures)
+	- create atof for char to double to be able to parse the numbers for the julia set
 
 
 STUFF FOR TODAY:
 	- create the zoom to follow the mouse (linear interpolation)
-	- create a second image to smooth out the rendering
 	- polish multibrot as the current function is not the desired shape
-	- find out to sleep the banner in makefile
-	- create atof for char to double to be able to parse the numbers for the julia set
-
+	- look for errors in the arguments check in main
+	- var.fractal.height_y is the same as var.mlx.height_y		CHANGE IT (take away var.fractal.width/height)
+	- var.fractal.width_x is the same as var.mlx.width_x		CHANGE IT (take away var.fractal.width/height)
 
 
 

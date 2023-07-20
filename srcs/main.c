@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 17:51:40 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:09:12 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,14 @@ int main(int argc, char **argv)
 	}
 	var.fractal.type = fractal_name(*(argv + 1), &var);
 	if (argc == 2 && !error_check(argv, &var))
+	{
+		if (var.fractal.type == 2)
+		{
+			var.fractal.c.real = 0.285;
+			var.fractal.c.imag = 0;
+		}
 		mlx_loop_hook(var.mlx.ptr, generate_fractal, &var);
+	}
 	if (argc == 3 && !error_check(argv, &var))
 	{
 		if (var.fractal.type != 0)

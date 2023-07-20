@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:21:05 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/19 18:40:43 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 21:08:39 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ void	init_fractal(t_data *var)
 	var->fractal.MinIm = -(var->img.height_y/1000);
 	var->fractal.MaxIm = (var->img.height_y/1000);
 	//related to zooming and out and probably middle too
-	var->fractal.Re_factor = (var->fractal.MaxRe - var->fractal.MinRe)/(var->img.width_x-1);
-	var->fractal.Im_factor = (var->fractal.MaxIm - var->fractal.MinIm)/(var->img.height_y-1);
+	var->fractal.Re_factor = (var->fractal.MaxRe - var->fractal.MinRe)/(var->img.width_x);
+	var->fractal.Im_factor = (var->fractal.MaxIm - var->fractal.MinIm)/(var->img.height_y);
+	printf("MaxRe is %f | MinRe is %f | Image WIDTH = %f\n", var->fractal.MaxRe, var->fractal.MinRe, var->img.width_x);
+	printf("MaxIm is %f | MinIm is %f | Image HEIGHT = %f\n", var->fractal.MaxIm, var->fractal.MinIm, var->img.height_y);
+	printf("Imaginary factor is %f | Real factor is %f\n", var->fractal.Im_factor, var->fractal.Re_factor);
 	var->fractal.color = 265;
 	var->fractal.MaxIterations = 40;
 }
