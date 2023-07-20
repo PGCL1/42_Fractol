@@ -51,6 +51,9 @@ SRC =  ft_bzero.c\
 		ft_lstmap_bonus.c\
 		ft_isstring.c\
 		ft_isnumber.c\
+		ft_isspace.c\
+		ft_pow.c\
+		ft_atof.c\
         
 OBJS = $(SRC:.c=.o)
 

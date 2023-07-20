@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnumber.c                                      :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/19 19:02:24 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 17:16:02 by glacroix         ###   ########.fr       */
+/*   Created: 2023/07/20 16:37:00 by glacroix          #+#    #+#             */
+/*   Updated: 2023/07/20 16:44:31 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isnumber(char *str)
+double	ft_pow(double x, double y)
 {
-	size_t	i;
+	double	re;
 
-	i = -1;
-	if (!str)
-		return (0);
-	while (str[++i] && str[i] != '\0')
-	{
-		if (i == 0 && str[i] == '.' && ft_isdigit(str[i + 1]) == 1)
-			i++;
-		else if (i == 0 && ft_isdigit(str[i]) == 1 && str[i + 1] == '.')
-			i += 2;
-		else if (str[i] && ft_isdigit(str[i]) == 0)
-			return (0);
-	}
-	return (1);
+	re = 1;
+	while (--y >= 0)
+		re *= x;
+	return (re);
 }

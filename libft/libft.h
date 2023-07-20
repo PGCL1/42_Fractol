@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:26:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/19 19:02:49 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:17:06 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+double	ft_atof(char *str);
+double	ft_pow(double x, double y);
+int		ft_isspace(char c);
 char	*get_next_line(int fd);
 size_t	ft_strlen_gnl(char *str);
 char	*ft_strjoin_gnl(char *s1, char *s2);

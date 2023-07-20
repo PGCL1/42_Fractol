@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:17:43 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/19 20:39:11 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:55:11 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,63 +35,65 @@ static void	julia_in_or_out(t_data *var, t_complex *Z, int *x, int *y)
 		my_mlx_pixel_put(&var->img, *x, *y, F_BLACK);
 }
 
-/* static double julia_set_im(t_complex *c, int i)
+static double julia_set_im(t_data *var, int i)
 {
 	
-	if (i == 1)
-		c->imag = 0;
+	if (i == 0)
+		var->fractal.c.imag = 0;
+	else if (i == 1)
+		var->fractal.c.imag = 0.01;
 	else if (i == 2)
-		c->imag = 0.01;
+		var->fractal.c.imag = 0.1428;
 	else if (i == 3)
-		c->imag = 0.1428;
+		var->fractal.c.imag = -.3842;
 	else if (i == 4)
-		c->imag = -.3842;
+		var->fractal.c.imag = -.2321;
 	else if (i == 5)
-		c->imag = -.2321;
+		var->fractal.c.imag = -.2321;
 	else if (i == 6)
-		c->imag = -.2321;
-	else if (i == 7)
-		c->imag = 0.1889;
+		var->fractal.c.imag = 0.1889;
 	else
-		c->imag = 0.8;
-	return (c->imag);	
+		var->fractal.c.imag = 0.8;
+	return (var->fractal.c.imag);	
 }
-static double julia_set_re(t_complex *c, int i)
+static double julia_set_re(t_data *var, int i)
 {
-	if (i == 1)
-		c->real = 0.285;
+	if (i == 0)
+		var->fractal.c.real = 0.285;
+	else if (i == 1)
+		var->fractal.c.real = 0.285;
 	else if (i == 2)
-		c->real = 0.285;
+		var->fractal.c.real = 0.45;
 	else if (i == 3)
-		c->real = 0.45;
+		var->fractal.c.real = -0.70176;
 	else if (i == 4)
-		c->real = -0.70176;
+		var->fractal.c.real = -0.8;
 	else if (i == 5)
-		c->real = -0.8;
+		var->fractal.c.real = -0.835;
 	else if (i == 6)
-		c->real = -0.835;
-	else if (i == 7)
-		c->real = -0.7269;
+		var->fractal.c.real = -0.7269;
 	else
-		c->real = 0;
-	return (c->real);	
-} */
+		var->fractal.c.real = 0;
+	return (var->fractal.c.real);	
+}
 
 int generate_julia(t_data *var)
 {
 	int y;
 	int x;
 	t_complex Z;
-/* 	t_complex c; */
-	printf("c.real is %f and c.imag is %f for Julia set\n", var->fractal.c.real, var->fractal.c.imag);
 	y = 0;
+	if (!var->fractal.c.imag && !var->fractal.c.real)
+	{
+		var->fractal.c.real = julia_set_re(var, var->fractal.index);
+		var->fractal.c.imag = julia_set_im(var, var->fractal.index);
+		printf("fractal index is %d\n", var->fractal.index);
+	}
 	while (++y < var->img.height_y - 1)
 	{
-/* 		c.imag = julia_set_im(&c, var->fractal.index); */
 		x = 0;
     	while (++x < var->img.width_x - 1)
     	{
-    /* 	    c.real = julia_set_re(&c, var->fractal.index); */
     	    Z.real = var->fractal.MinRe + x * var->fractal.Re_factor;
 			Z.imag = var->fractal.MaxIm - y * var->fractal.Im_factor;
     	    julia_in_or_out(var, &Z, &x, &y);

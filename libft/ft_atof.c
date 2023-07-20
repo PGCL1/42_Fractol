@@ -6,37 +6,48 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:42:42 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/19 20:52:00 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:15:02 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static double	ft_skip_sign(char **str)
+{
+	double	sign;
+
+	sign = 1.0;
+	while (ft_isspace(**str) == 1)
+		(*str)++;
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			sign *= -1.0;
+		(*str)++;
+	}
+	return (sign);
+}
+
 double	ft_atof(char *str)
 {
-	int				i;
-	int				signage;
-	double			result;
+	int		j;
+	double	re;
+	double	decimal;
+	double	sign;
 
-	i = 0;
-	result = 0;
-	signage = 0;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == 43 || str[i] == 45)
+	j = 0;
+	re = 0.0;
+	decimal = 0.0;
+	sign = ft_skip_sign(&str);
+	while (ft_isdigit(*str) == 1 && *str != '.')
+		re = (*(str++) - '0') + (re * 10.0);
+	if (*str == '.')
+		++str;
+	while (ft_isdigit(*str) == 1 && *str != '.')
 	{
-		if (str[i++] == 45)
-			signage++;
+		decimal = (*(str++) - '0') + (decimal * 10.0);
+		j++;
 	}
-	//find a way to write the dot for atof
-	if (str[i] == '.')
-	while (str[i] >= '0' && str[i] <= '9')
-		result = ((str[i++] - '0') + (result * 10));
-	if (result > 2147483647 && !signage)
-		return (-1);
-	else if (result > 2147483648 && signage)
-		return (0);
-	else if (signage)
-		return ((int)result * -1);
-	return ((int) result);
+	decimal /= ft_pow(10, j);
+	return ((re + decimal) * sign);
 }

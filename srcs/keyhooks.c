@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/17 21:47:37 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:56:02 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int key_hook(int keycode, t_data *var)
 {
-	//printf("Keycode is %d\n", keycode);
+	printf("Keycode is %d\n", keycode);
 	var->fractal.Im_center = var->fractal.MinIm - var->fractal.MaxIm;
 	var->fractal.Re_center = var->fractal.MinRe - var->fractal.MaxRe;
 	if (keycode == ESC)
@@ -58,10 +58,11 @@ int key_hook(int keycode, t_data *var)
 			var->fractal.test = 0;
 		var->fractal.color = array[var->fractal.test++];
 	}
-	else if (keycode == 3)
+	else if (keycode == F)
 	{
-		if (var->fractal.index == 8)
-			var->fractal.index = 0;
+		if (var->fractal.index == 7)
+			var->fractal.index = 1;
+		printf("keyhook index is %d\n", var->fractal.index);
 		var->fractal.index++;
 	}
 	return (0);
