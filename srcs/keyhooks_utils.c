@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 18:35:50 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:57:42 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	movements(int keycode, t_data *var)
 
 void iterations(int keycode, t_data *var)
 {
+	if (var->fract.MaxIterations > 310)
+		var->fract.MaxIterations = 10;
 	if (keycode == PLUS)
 	{
 		var->fract.MaxIterations += 10;

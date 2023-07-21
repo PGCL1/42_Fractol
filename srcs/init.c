@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:21:05 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 18:26:19 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:34:38 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ void	init_fractal(t_data *var)
 	var->fract.MaxIterations = 40;
 }
 
-void	init_all(t_data *var)
+void	init_all(t_data *var, int argc, char **argv)
 {
-	init_mlx(var);
-	init_image(var);
-	init_fractal(var);
+	if (argc > 1)
+	{
+		init_mlx(var);
+		init_image(var);
+		init_fractal(var);
+	}
+	else
+		error_and_exit(argc, argv, var);
 }

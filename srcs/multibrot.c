@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:59:03 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 17:44:24 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:17:26 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ static void	multibrot_in_or_out(t_data *var, t_complex *Z, int *x, int *y)
 {
 	double Z_re2;
     double Z_im2;
+	double Z_re4;
+    double Z_im4;
 	int i = 0;
 	int n = 0;
 	while (++n < var->fract.MaxIterations)
     {
 		Z_re2 = Z->real * Z->real;
 		Z_im2 = Z->imag * Z->imag;
-        if(Z_re2 + Z_im2 > 4)
+		Z_re4 = Z_re2 *Z_re2;
+		Z_im4 = Z_im2* Z_im2;
+        if( (Z_re2 + Z_im2) > 4)
         {
             i = 1;
             break;
         }
-        Z->imag = 4*Z->real*Z->imag + var->fract.c.imag;
-        Z->real = (Z_re2*Z_re2 - Z_im2*Z_im2) + var->fract.c.real;
+        Z->imag = -4*ft_pow(Z->real, 3)*Z->imag+4*Z->real*ft_pow(Z->imag, 3) + var->fract.c.imag;
+        Z->real = Z_re4 - 6*Z_re2*Z_im2+Z_im4 + var->fract.c.real;
     }
 	my_mlx_pixel_put(&var->img, *x, *y, var->fract.color * n);
 	if (i == 0)
@@ -37,7 +41,6 @@ static void	multibrot_in_or_out(t_data *var, t_complex *Z, int *x, int *y)
 
 int generate_multibrot(t_data *var)
 {	
-	//x, y are the starting points from which the image is drawn
 	int y;
 	int x;
 	t_complex Z;

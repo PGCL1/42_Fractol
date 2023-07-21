@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 19:44:13 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 22:16:59 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,19 @@ void	ft_leaks(void)
 int error_check(int argc, char **argv, t_data *var)
 {
 	int i;
+	int j;
 
 	i = 3;
+	j = 0;
 	if (var->fract.type == 0)
 		return (1);
 	if (argc > 2)
 	{
-		while (*argv[2] != '\0')
+		while (argv[2][j] != '\0')
 		{
-			if (!(*argv[2] >= '0' && *argv[2] <= '9'))
+			if (!(argv[2][j] >= '0' && argv[2][j] <= '9'))
 				return (1);
-			argv[2]++;
+			j++;
 		}
 		while (argv[i] != NULL)
 		{
@@ -55,8 +57,9 @@ int main(int argc, char **argv)
 {
 	t_data	var;
 	
+	atexit(ft_leaks);
 	ft_memset(&var, 0, sizeof(var));
-	init_all(&var);
+	init_all(&var, argc, argv);
 	if (argc == 1)
 		error_and_exit(argc, argv, &var);
 	var.fract.type = fractal_name(*(argv + 1), &var);
@@ -72,7 +75,11 @@ int main(int argc, char **argv)
 	else if (argc == 3 && !error_check(argc, argv, &var))
 	{
 		if (var.fract.type != 0)
-			var.fract.MaxIterations = ft_atoi(*(argv+2));
+		{
+			var.fract.MaxIterations = ft_atoi(argv[2]);
+			if (var.fract.MaxIterations < 10)
+				exit(EXIT_FAILURE);
+		}	
 		if (var.fract.type == 2)
 		{
 			var.fract.c.real = 0.285;
@@ -84,6 +91,8 @@ int main(int argc, char **argv)
 	{
 		var.fract.c.real = ft_atof(*(argv + 3));
 		var.fract.c.imag = ft_atof(*(argv + 4));
+		if (var.fract.c.imag > 1.0 || var.fract.c.imag < -1.0 || var.fract.c.real > 2.0 || var.fract.c.real < -2.0)
+			error_and_exit(argc, argv, &var);
 		mlx_loop_hook(var.mlx.ptr, generate_julia, &var);
 	}
 	else if (!*(argv + 1) || var.fract.type == 0 || error_check(argc, argv, &var) == 1)

@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 19:44:26 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 22:33:36 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define MAGENTA 		"\x1B[35m"
 # define CAYN  			"\x1B[36m"
 # define WHITE  		"\x1B[37m"
+# define ORANGE			"\x1b[38;5;209m"
 
 /*---------------------------Fractol Elements---------------------------------*/
 /*define DEMO_COLOR			0xTTRRGGBB */
@@ -109,7 +110,7 @@ typedef struct	t_data {
 void	init_mlx(t_data *var);
 void	init_fractal(t_data *var);
 void	init_image(t_data *var);
-void	init_all(t_data *var);
+void	init_all(t_data *var, int argc, char **argv);
 
 /*-2) Keyhooks----------------------------------------------------------------*/
 int		ft_exit(t_data *img);

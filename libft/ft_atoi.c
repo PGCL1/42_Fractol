@@ -6,11 +6,12 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:05:05 by glacroix          #+#    #+#             */
-/*   Updated: 2023/05/05 20:35:25 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:49:18 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
