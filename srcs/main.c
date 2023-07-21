@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 17:10:42 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 19:44:13 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,27 @@ void	ft_leaks(void)
 	/* atexit(ft_leaks); */
 }
 
-static int error_check(char **argv, t_data *var)
+int error_check(int argc, char **argv, t_data *var)
 {
 	int i;
 
-	i = 2;
-	if (var->fractal.type == 0)
+	i = 3;
+	if (var->fract.type == 0)
 		return (1);
-	while (argv[i] != NULL)
+	if (argc > 2)
 	{
-		if (ft_isnumber(argv[i]) == 0)
-			return (1);
-		i++;
+		while (*argv[2] != '\0')
+		{
+			if (!(*argv[2] >= '0' && *argv[2] <= '9'))
+				return (1);
+			argv[2]++;
+		}
+		while (argv[i] != NULL)
+		{
+			if (ft_isnumber(argv[i]) == 0)
+				return (1);
+			i++;
+		}
 	}
 	return (0);
 }
@@ -49,40 +58,38 @@ int main(int argc, char **argv)
 	ft_memset(&var, 0, sizeof(var));
 	init_all(&var);
 	if (argc == 1)
+		error_and_exit(argc, argv, &var);
+	var.fract.type = fractal_name(*(argv + 1), &var);
+	if (argc == 2 && error_check(argc, argv, &var) == 0)
 	{
-		ft_putstr_fd("You need to precise the fractal you wish to see\n\t- 1) Mandelbrot\n\t- 2) Julia\nHere's the prototype: ./fractol <fractal-name> || ./fractol <fractal-number>\n", 1);
-		exit(EXIT_FAILURE);
-	}
-	var.fractal.type = fractal_name(*(argv + 1), &var);
-	if (argc == 2 && !error_check(argv, &var))
-	{
-		if (var.fractal.type == 2)
+		if (var.fract.type == 2)
 		{
-			var.fractal.c.real = 0.285;
-			var.fractal.c.imag = 0;
+			var.fract.c.real = 0.285;
+			var.fract.c.imag = 0;
 		}
 		mlx_loop_hook(var.mlx.ptr, generate_fractal, &var);
 	}
-	if (argc == 3 && !error_check(argv, &var))
+	else if (argc == 3 && !error_check(argc, argv, &var))
 	{
-		if (var.fractal.type != 0)
-			var.fractal.MaxIterations = ft_atoi(*(argv+2));
+		if (var.fract.type != 0)
+			var.fract.MaxIterations = ft_atoi(*(argv+2));
+		if (var.fract.type == 2)
+		{
+			var.fract.c.real = 0.285;
+			var.fract.c.imag = 0;
+		}
 		mlx_loop_hook(var.mlx.ptr, generate_fractal, &var);
 	}
-	else if (argc == 5 && !error_check(argv, &var))
+	else if (argc == 5 && !error_check(argc, argv, &var) && var.fract.type == 2)
 	{
-		if (var.fractal.type == 2)
-		{
-			var.fractal.c.real = ft_atof(*(argv + 3));
-			var.fractal.c.imag = ft_atof(*(argv + 4));
-		}
+		var.fract.c.real = ft_atof(*(argv + 3));
+		var.fract.c.imag = ft_atof(*(argv + 4));
 		mlx_loop_hook(var.mlx.ptr, generate_julia, &var);
 	}
-	else if (!*(argv + 1) || var.fractal.type == 0 || error_check(argv, &var) == 1)
-	{
-		ft_putstr_fd("You need to precise the fractal you wish to see\n\t- 1) Mandelbrot\n\t- 2) Julia\nHere's the prototype: ./fractol <fractal-name> || ./fractol <fractal-number>\n", 1);
-		exit(EXIT_FAILURE);
-	}
+	else if (!*(argv + 1) || var.fract.type == 0 || error_check(argc, argv, &var) == 1)
+		error_and_exit(argc, argv, &var);
+	else
+		error_and_exit(argc, argv, &var);
 	//exit program through cross and ESC
 	mlx_hook(var.mlx.win, 17, 0, ft_exit, &var);
 	mlx_hook(var.mlx.win, 2, 0, key_hook, &var);

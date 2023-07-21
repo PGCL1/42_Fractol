@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:21:05 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 17:09:06 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:26:19 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	init_image(t_data *var)
 void	init_fractal(t_data *var)
 {
 	//fractal dimensions
-	var->fractal.MinRe = -(var->img.width_x/500);
-	var->fractal.MaxRe = (var->img.width_x/500);
-	var->fractal.MinIm = -(var->img.height_y/500);
-	var->fractal.MaxIm = (var->img.height_y/500);
+	var->fract.MinRe = -(var->img.width_x/500);
+	var->fract.MaxRe = (var->img.width_x/500);
+	var->fract.MinIm = -(var->img.height_y/500);
+	var->fract.MaxIm = (var->img.height_y/500);
 	//related to zooming and out and probably middle too
-	var->fractal.Re_factor = (var->fractal.MaxRe - var->fractal.MinRe)/(var->img.width_x);
-	var->fractal.Im_factor = (var->fractal.MaxIm - var->fractal.MinIm)/(var->img.height_y);
-	var->fractal.color = 265;
-	var->fractal.MaxIterations = 40;
+	var->fract.Re_factor = (var->fract.MaxRe - var->fract.MinRe)/(var->img.width_x);
+	var->fract.Im_factor = (var->fract.MaxIm - var->fract.MinIm)/(var->img.height_y);
+	var->fract.color = 265;
+	var->fract.MaxIterations = 40;
 }
 
 void	init_all(t_data *var)

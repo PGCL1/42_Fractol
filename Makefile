@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/18 22:20:52 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/21 19:04:57 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRCS		= srcs/main.c\
 			srcs/init.c\
 			srcs/legend.c\
 			srcs/multibrot.c\
+			srcs/keyhooks_utils.c\
+			srcs/errors.c\
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 

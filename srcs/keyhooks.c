@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 17:02:28 by glacroix         ###   ########.fr       */
+/*   Created: 2023/07/21 18:33:37 by glacroix          #+#    #+#             */
+/*   Updated: 2023/07/21 18:34:42 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,82 +14,32 @@
 
 int key_hook(int keycode, t_data *var)
 {
-	//printf("Keycode is %d\n", keycode);
-	var->fractal.Im_center = var->fractal.MinIm - var->fractal.MaxIm;
-	var->fractal.Re_center = var->fractal.MinRe - var->fractal.MaxRe;
+	var->fract.Im_center = var->fract.MinIm - var->fract.MaxIm;
+	var->fract.Re_center = var->fract.MinRe - var->fract.MaxRe;
 	if (keycode == ESC)
 		ft_exit(var);
-	else if (keycode == W || keycode == UP)
-	{
-		var->fractal.MinIm += var->fractal.Im_center * (var->fractal.Im_factor * 20);
-		var->fractal.MaxIm += var->fractal.Im_center * (var->fractal.Im_factor * 20);
-	}
-	else if (keycode == S || keycode == DOWN)
-	{
-		var->fractal.MaxIm -= var->fractal.Im_center * (var->fractal.Im_factor * 20);
-		var->fractal.MinIm -= var->fractal.Im_center * (var->fractal.Im_factor * 20);
-	}
-	else if (keycode == A || keycode == LEFT)
-	{
-		var->fractal.MinRe -= var->fractal.Re_center * (var->fractal.Re_factor * 8); 
-		var->fractal.MaxRe -= var->fractal.Re_center * (var->fractal.Re_factor * 8);
-	}
-	else if (keycode == D || keycode == RIGHT)
-	{
-		var->fractal.MinRe += var->fractal.Re_center * (var->fractal.Re_factor * 8);
-		var->fractal.MaxRe += var->fractal.Re_center * (var->fractal.Re_factor * 8);
-	}
-	else if (keycode == PLUS)
-	{
-		var->fractal.MaxIterations += 10;
-		if (var->fractal.MaxIterations == 310)
-			var->fractal.MaxIterations = 10;
-	}
-	else if (keycode == MINUS)
-	{
-		var->fractal.MaxIterations -= 10;
-		if (var->fractal.MaxIterations == 0)
-			var->fractal.MaxIterations = 10;
-	}
-	else if (keycode == C)
-	{
-		int array[5] = {F_WHITE, F_BLUE, F_ORANGE, F_PURPLE, F_GREEN};
-		if (var->fractal.test == 5)
-			var->fractal.test = 0;
-		var->fractal.color = array[var->fractal.test++];
-	}
-	else if (keycode == F && var->fractal.type == 2)
-	{
-		if (var->fractal.index == 8)
-			var->fractal.index = 1;
-		var->fractal.index++;
-	}
+	movements(keycode, var);
+	iterations(keycode, var);	
+	colors_and_types(keycode, var);
 	return (0);
 }
 
-int ft_exit(t_data *img)
-{
-	(void)img;
-	ft_putstr_fd("Exited G's Fractol\n", 1);
-	exit(EXIT_SUCCESS);
-}
 
 int mouse_hook(int button, int x, int y, t_data *var)
 {
-	//find values to keep center
 	if (button == 5) //zoom in
 	{
-		var->fractal.MaxIm -= y * (1 - ZOOM) * var->fractal.Im_factor;
-		var->fractal.MinRe += x * (1 - ZOOM) * var->fractal.Re_factor;
-		var->fractal.Im_factor *= ZOOM;
-		var->fractal.Re_factor *= ZOOM;
+		var->fract.MaxIm -= y * (1 - ZOOM) * var->fract.Im_factor;
+		var->fract.MinRe += x * (1 - ZOOM) * var->fract.Re_factor;
+		var->fract.Im_factor *= ZOOM;
+		var->fract.Re_factor *= ZOOM;
 	}
 	else if (button == 4) // zoom out
 	{
-		var->fractal.MaxIm -= y * (1 - 1/ZOOM) * var->fractal.Im_factor;
-		var->fractal.MinRe += x * (1 - 1/ZOOM) * var->fractal.Re_factor;
-		var->fractal.Re_factor /= ZOOM;
-		var->fractal.Im_factor /= ZOOM;
+		var->fract.MaxIm -= y * (1 - 1/ZOOM) * var->fract.Im_factor;
+		var->fract.MinRe += x * (1 - 1/ZOOM) * var->fract.Re_factor;
+		var->fract.Re_factor /= ZOOM;
+		var->fract.Im_factor /= ZOOM;
 	}
 	return (0);
 }

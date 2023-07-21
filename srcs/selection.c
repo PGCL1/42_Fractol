@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:58:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 20:58:37 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 19:19:09 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,25 @@ int	fractal_name(char *str, t_data *var)
 	ft_islower(str);
 	if (!ft_strncmp(str, "mandelbrot", ft_strlen(str) + 1)
 		|| !ft_strncmp(str, "1", 2))
-		var->fractal.type = 1;
+		var->fract.type = 1;
 	else if (!ft_strncmp(str, "julia", ft_strlen(str) + 1)
 		|| !ft_strncmp(str, "2", 2))
-		var->fractal.type = 2;
+		var->fract.type = 2;
 	else if (!ft_strncmp(str, "multibrot", ft_strlen(str) + 1)
 		|| !ft_strncmp(str, "3", 2))
-		var->fractal.type = 3;
+		var->fract.type = 3;
 	else
-		var->fractal.type = 0;
-	return (var->fractal.type);
+		var->fract.type = 0;
+	return (var->fract.type);
 }
 
 int	generate_fractal(t_data *var)
 {
-	if (var->fractal.type == 1)
+	if (var->fract.type == 1)
 		generate_mandelbrot(var);
-	else if (var->fractal.type == 2)
+	else if (var->fract.type == 2)
 		generate_julia(var);
-	else if (var->fractal.type == 3)
+	else if (var->fract.type == 3)
 		generate_multibrot(var);
 	return (0);
 }

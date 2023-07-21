@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 16:54:01 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 19:44:26 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,17 @@ typedef struct t_img {
 }				t_img;
 
 typedef struct t_fractol{
-	double		MinRe;
+	int			MaxIterations;
 	double		MaxRe;
+	double		MinRe;
 	double		Re_center;
 	double		Re_factor;
-	double		MinIm;
 	double		MaxIm;
-	double		Im_center;
+	double		MinIm;
 	double		Im_factor;
+	double		Im_center;
 	int			color;
-	int			MaxIterations;
-	double		zoom;
-	int			test;
+	int			color_index;
 	int			index;
 	int			type;
 	t_complex	c;
@@ -101,7 +100,7 @@ typedef struct t_fractol{
 typedef struct	t_data {
 	t_mlx		mlx;
 	t_img		img;
-	t_fractol	fractal;
+	t_fractol	fract;
 }				t_data;
 
 /*--------------------------Fractol Functions---------------------------------*/
@@ -113,8 +112,11 @@ void	init_image(t_data *var);
 void	init_all(t_data *var);
 
 /*-2) Keyhooks----------------------------------------------------------------*/
-int		key_hook(int keycode, t_data *var);
 int		ft_exit(t_data *img);
+void	movements(int keycode, t_data *var);
+void	iterations(int keycode, t_data *var);
+void	colors_and_types(int keycode, t_data *var);
+int		key_hook(int keycode, t_data *var);
 int		mouse_hook(int button, int x, int y, t_data *var);
 
 /*-3) Fractal Selection-------------------------------------------------------*/
@@ -128,5 +130,9 @@ int		generate_multibrot(t_data *var);
 /*-4) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	print_iterations(t_data *var);
+
+/*-4) Error print-------------------------------------------------------------*/
+void	error_and_exit(int argc, char **argv, t_data *var);
+int		error_check(int argc, char **argv, t_data *var);
 
 #endif

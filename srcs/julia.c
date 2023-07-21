@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:17:43 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 19:57:22 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:43:44 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	julia_in_or_out(t_data *var, t_complex *Z, int *x, int *y)
     double Z_im2;
 	int i = 0;
 	int n = 0;
-	while (++n < var->fractal.MaxIterations)
+	while (++n < var->fract.MaxIterations)
     {
 		Z_re2 = Z->real * Z->real;
 		Z_im2 = Z->imag * Z->imag;
@@ -27,10 +27,10 @@ static void	julia_in_or_out(t_data *var, t_complex *Z, int *x, int *y)
             i = 1;
             break;
         }
-        Z->imag = 2*Z->real*Z->imag + var->fractal.c.imag;
-        Z->real = Z_re2 - Z_im2 + var->fractal.c.real;
+        Z->imag = 2*Z->real*Z->imag + var->fract.c.imag;
+        Z->real = Z_re2 - Z_im2 + var->fract.c.real;
     }
-	my_mlx_pixel_put(&var->img, *x, *y, var->fractal.color * n);
+	my_mlx_pixel_put(&var->img, *x, *y, var->fract.color * n);
 	if (i == 0)
 		my_mlx_pixel_put(&var->img, *x, *y, F_BLACK);
 }
@@ -39,42 +39,42 @@ static double julia_set_im(t_data *var, int i)
 {
 	
 	if (i == 1)
-		var->fractal.c.imag = 0;
+		var->fract.c.imag = 0;
 	else if (i == 2)
-		var->fractal.c.imag = 0.01;
+		var->fract.c.imag = 0.01;
 	else if (i == 3)
-		var->fractal.c.imag = 0.1428;
+		var->fract.c.imag = 0.1428;
 	else if (i == 4)
-		var->fractal.c.imag = -.3842;
+		var->fract.c.imag = -.3842;
 	else if (i == 5)
-		var->fractal.c.imag = -.2321;
+		var->fract.c.imag = -.2321;
 	else if (i == 6)
-		var->fractal.c.imag = -.2321;
+		var->fract.c.imag = -.2321;
 	else if (i == 7)
-		var->fractal.c.imag = 0.1889;
+		var->fract.c.imag = 0.1889;
 	else
-		var->fractal.c.imag = 0.8;
-	return (var->fractal.c.imag);	
+		var->fract.c.imag = 0.8;
+	return (var->fract.c.imag);	
 }
 static double julia_set_re(t_data *var, int i)
 {
 	if (i == 1)
-		var->fractal.c.real = 0.285;
+		var->fract.c.real = 0.285;
 	else if (i == 2)
-		var->fractal.c.real = 0.285;
+		var->fract.c.real = 0.285;
 	else if (i == 3)
-		var->fractal.c.real = 0.45;
+		var->fract.c.real = 0.45;
 	else if (i == 4)
-		var->fractal.c.real = -0.70176;
+		var->fract.c.real = -0.70176;
 	else if (i == 5)
-		var->fractal.c.real = -0.8;
+		var->fract.c.real = -0.8;
 	else if (i == 6)
-		var->fractal.c.real = -0.835;
+		var->fract.c.real = -0.835;
 	else if (i == 7)
-		var->fractal.c.real = -0.7269;
+		var->fract.c.real = -0.7269;
 	else 
-		var->fractal.c.real = 0;
-	return (var->fractal.c.real);	
+		var->fract.c.real = 0;
+	return (var->fract.c.real);	
 }
 
 int generate_julia(t_data *var)
@@ -84,18 +84,18 @@ int generate_julia(t_data *var)
 	t_complex Z;
 	y = 0;
 	
-	if (var->fractal.index != 0)
+	if (var->fract.index != 0)
 	{
-		var->fractal.c.real = julia_set_re(var, var->fractal.index);
-		var->fractal.c.imag = julia_set_im(var, var->fractal.index);
+		var->fract.c.real = julia_set_re(var, var->fract.index);
+		var->fract.c.imag = julia_set_im(var, var->fract.index);
 	}
 	while (++y < var->img.height_y - 1)
 	{
 		x = 0;
     	while (++x < var->img.width_x - 1)
     	{
-    	    Z.real = var->fractal.MinRe + x * var->fractal.Re_factor;
-			Z.imag = var->fractal.MaxIm - y * var->fractal.Im_factor;
+    	    Z.real = var->fract.MinRe + x * var->fract.Re_factor;
+			Z.imag = var->fract.MaxIm - y * var->fract.Im_factor;
     	    julia_in_or_out(var, &Z, &x, &y);
     	}
 	}
