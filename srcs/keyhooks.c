@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:37:28 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 21:53:35 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:02:28 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,14 @@ int ft_exit(t_data *img)
 int mouse_hook(int button, int x, int y, t_data *var)
 {
 	//find values to keep center
-	printf("%d | screen(x = %d, y = %d)\n", button, x, y);
-	(void)x;
-	(void)y;
-	if (button == 5)
+	if (button == 5) //zoom in
 	{
 		var->fractal.MaxIm -= y * (1 - ZOOM) * var->fractal.Im_factor;
 		var->fractal.MinRe += x * (1 - ZOOM) * var->fractal.Re_factor;
 		var->fractal.Im_factor *= ZOOM;
 		var->fractal.Re_factor *= ZOOM;
 	}
-	else if (button == 4)
+	else if (button == 4) // zoom out
 	{
 		var->fractal.MaxIm -= y * (1 - 1/ZOOM) * var->fractal.Im_factor;
 		var->fractal.MinRe += x * (1 - 1/ZOOM) * var->fractal.Re_factor;

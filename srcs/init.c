@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:21:05 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 21:08:39 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:09:06 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	init_mlx(t_data *var)
 {
 	//initializing API connection and window
 	var->mlx.ptr = mlx_init();
+	if (!var->mlx.ptr)
+		exit(EXIT_FAILURE);
 	var->mlx.height_y = 768; //768 | 1080
 	var->mlx.width_x = 1366; //1366 | 1920
 	var->mlx.win = mlx_new_window(var->mlx.ptr, var->mlx.width_x, var->mlx.height_y, "G's Fractol");
@@ -27,22 +29,21 @@ void	init_image(t_data *var)
 	var->img.height_y = var->mlx.height_y;
 	var->img.width_x = var->mlx.width_x;
 	var->img.img = mlx_new_image(var->mlx.ptr, var->img.width_x, var->img.height_y);
+	if (!var->img.img)
+		exit(EXIT_FAILURE);
 	var->img.addr = mlx_get_data_addr(var->img.img, &var->img.bits_per_pixel, &var->img.line_length, &var->img.endian);
 }
 
 void	init_fractal(t_data *var)
 {
 	//fractal dimensions
-	var->fractal.MinRe = -(var->img.width_x/1000);
-	var->fractal.MaxRe = (var->img.width_x/1000);
-	var->fractal.MinIm = -(var->img.height_y/1000);
-	var->fractal.MaxIm = (var->img.height_y/1000);
+	var->fractal.MinRe = -(var->img.width_x/500);
+	var->fractal.MaxRe = (var->img.width_x/500);
+	var->fractal.MinIm = -(var->img.height_y/500);
+	var->fractal.MaxIm = (var->img.height_y/500);
 	//related to zooming and out and probably middle too
 	var->fractal.Re_factor = (var->fractal.MaxRe - var->fractal.MinRe)/(var->img.width_x);
 	var->fractal.Im_factor = (var->fractal.MaxIm - var->fractal.MinIm)/(var->img.height_y);
-	printf("MaxRe is %f | MinRe is %f | Image WIDTH = %f\n", var->fractal.MaxRe, var->fractal.MinRe, var->img.width_x);
-	printf("MaxIm is %f | MinIm is %f | Image HEIGHT = %f\n", var->fractal.MaxIm, var->fractal.MinIm, var->img.height_y);
-	printf("Imaginary factor is %f | Real factor is %f\n", var->fractal.Im_factor, var->fractal.Re_factor);
 	var->fractal.color = 265;
 	var->fractal.MaxIterations = 40;
 }

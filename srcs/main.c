@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:55:55 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/20 19:09:12 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:10:42 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 void	ft_leaks(void)
 {
 	system("leaks -q fractol");
-/* 	atexit(ft_leaks); */
+	/* atexit(ft_leaks); */
 }
 
 static int error_check(char **argv, t_data *var)
