@@ -6,7 +6,7 @@
 #    By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:19:19 by glacroix          #+#    #+#              #
-#    Updated: 2023/07/21 19:04:57 by glacroix         ###   ########.fr        #
+#    Updated: 2023/07/26 10:15:53 by glacroix         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,15 +28,16 @@ NAME		= fractol
 #SRC & OBJS Details
 # **************************************************************************** #
 SRCS		= srcs/main.c\
-			srcs/keyhooks.c\
-			srcs/selection.c\
-			srcs/mandelbrot.c\
-			srcs/julia.c\
 			srcs/init.c\
-			srcs/legend.c\
-			srcs/multibrot.c\
-			srcs/keyhooks_utils.c\
 			srcs/errors.c\
+			srcs/keyhooks.c\
+			srcs/keyhooks_utils.c\
+			srcs/legend.c\
+			srcs/mlx_loops.c\
+			srcs/selection.c\
+			srcs/fractals/mandelbrot.c\
+			srcs/fractals/julia.c\
+			srcs/fractals/multibrot.c\
 
 OBJS		= $(SRCS:%.c=objs/%.o)
 
@@ -73,6 +74,7 @@ ${NAME}: objs ${OBJS}
 # **************************************************************************** #
 objs:
 	@mkdir -p objs/srcs
+	@mkdir -p objs/srcs/fractals
 
 objs/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ 

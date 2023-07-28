@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 22:33:36 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:21:39 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ typedef struct	t_data {
 void	init_mlx(t_data *var);
 void	init_fractal(t_data *var);
 void	init_image(t_data *var);
-void	init_all(t_data *var, int argc, char **argv);
+void	init_all(t_data *var);
 
 /*-2) Keyhooks----------------------------------------------------------------*/
 int		ft_exit(t_data *img);
@@ -119,21 +119,23 @@ void	iterations(int keycode, t_data *var);
 void	colors_and_types(int keycode, t_data *var);
 int		key_hook(int keycode, t_data *var);
 int		mouse_hook(int button, int x, int y, t_data *var);
+void	mlx_loops(t_data *var);
 
 /*-3) Fractal Selection-------------------------------------------------------*/
 void	ft_islower(char *str);
-int		fractal_name(char *str, t_data *var);
+int		isfractal(char *str, t_data *var);
 int		generate_fractal(t_data *var);
 int		generate_mandelbrot(t_data *var);
 int		generate_julia(t_data *var);
+void	julia_setup(int argc, char **argv, t_data *var);
 int		generate_multibrot(t_data *var);
 
 /*-4) Pixel Print-------------------------------------------------------------*/
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	print_iterations(t_data *var);
 
-/*-4) Error print-------------------------------------------------------------*/
-void	error_and_exit(int argc, char **argv, t_data *var);
+/*-4) Messages print----------------------------------------------------------*/
+void	instructions(void);
 int		error_check(int argc, char **argv, t_data *var);
 
 #endif

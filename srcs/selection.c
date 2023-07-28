@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:58:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 19:19:09 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:21:53 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_islower(char *str)
 	}
 }
 
-int	fractal_name(char *str, t_data *var)
+int	isfractal(char *str, t_data *var)
 {
 	ft_islower(str);
 	if (!ft_strncmp(str, "mandelbrot", ft_strlen(str) + 1)
@@ -38,8 +38,8 @@ int	fractal_name(char *str, t_data *var)
 		|| !ft_strncmp(str, "3", 2))
 		var->fract.type = 3;
 	else
-		var->fract.type = 0;
-	return (var->fract.type);
+		return (0);
+	return (1);
 }
 
 int	generate_fractal(t_data *var)

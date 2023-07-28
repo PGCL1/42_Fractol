@@ -48,14 +48,9 @@ void	init_fractal(t_data *var)
 	var->fract.MaxIterations = 40;
 }
 
-void	init_all(t_data *var, int argc, char **argv)
+void	init_all(t_data *var)
 {
-	if (argc > 1)
-	{
-		init_mlx(var);
-		init_image(var);
-		init_fractal(var);
-	}
-	else
-		error_and_exit(argc, argv, var);
+	init_mlx(var);
+	init_image(var);
+	init_fractal(var);
 }

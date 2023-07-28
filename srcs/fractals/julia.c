@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:17:43 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/21 17:43:44 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:43:52 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,20 @@ static double julia_set_re(t_data *var, int i)
 	else 
 		var->fract.c.real = 0;
 	return (var->fract.c.real);	
+}
+
+void julia_setup(int argc, char **argv, t_data *var)
+{
+	if (argc == 2 || argc == 3)
+	{
+		var->fract.c.real = 0.285;
+		var->fract.c.imag = 0;
+	}
+	else if (argc == 5)
+	{
+		var->fract.c.real = ft_atof(*(argv + 3));
+		var->fract.c.imag = ft_atof(*(argv + 4));
+	}
 }
 
 int generate_julia(t_data *var)
