@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:58:53 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/26 10:21:53 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/29 17:42:20 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int	isfractal(char *str, t_data *var)
 		|| !ft_strncmp(str, "3", 2))
 		var->fract.type = 3;
 	else
-		return (0);
-	return (1);
+		return (FALSE);
+	return (TRUE);
 }
 
 int	generate_fractal(t_data *var)

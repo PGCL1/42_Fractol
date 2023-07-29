@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:10 by glacroix          #+#    #+#             */
-/*   Updated: 2023/07/26 10:21:39 by glacroix         ###   ########.fr       */
+/*   Updated: 2023/07/29 17:41:09 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@
 # define C					8
 # define F					3
 # define ZOOM				0.85
-
+# define TRUE				1
+# define FALSE				0
 /*-----------------------------Structures-------------------------------------*/
 typedef struct t_complex {
     double real;
@@ -136,6 +137,6 @@ void	print_iterations(t_data *var);
 
 /*-4) Messages print----------------------------------------------------------*/
 void	instructions(void);
-int		error_check(int argc, char **argv, t_data *var);
+int		error_args(int argc, char **argv, t_data *var);
 
 #endif
