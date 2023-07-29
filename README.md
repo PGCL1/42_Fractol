@@ -4,7 +4,8 @@
 
 My project contains 3 fractals namely the Mandelbrot set, the Julia set and the Multibrot set. I also added a few features to this project which I will resume in a table.
 
-Commands | Description | Fractals
+Commands | Description | Fractals |
+|---|---|---|
 C | change color scheme | ALL |
 F | change the constant's value for the Julia set | Julia |
 + | add iterations to the counter (only work for large keyboards) | ALL |
