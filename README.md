@@ -8,8 +8,8 @@ Commands | Description | Fractals |
 |---|---|---|
 C | change color scheme | ALL |
 F | change the constant's value for the Julia set | Julia |
-+ | add iterations to the counter (only work for large keyboards) | ALL |
-- | minus iterations to the counter (only work for large keyboards) | ALL |
+'+' | add iterations to the counter (only work for large keyboards) | ALL |
+'-' | minus iterations to the counter (only work for large keyboards) | ALL |
 Arrow key UP | move up the fractal image | ALL |
 W | move up the fractal image | ALL |
 Arrow key DOWN | move down the fractal image | ALL |
