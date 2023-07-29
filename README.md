@@ -32,10 +32,10 @@ git clone git@github.com:PGCL1/42_Fractol.git
 ```C
 make
 
-# returns 'Mandelbrot'
+# returns 'Mandelbrot set'
 ./fractol Mandelbrot
 
-# returns 'Mandelbrot at 300 iterations'
+# returns 'Mandelbrot set at 300 iterations'
 ./fractol Mandelbrot 30
 
 # returns 'Julia set 0.285 0 at 30 iterations '
