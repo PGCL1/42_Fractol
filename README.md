@@ -31,7 +31,7 @@ cd .. && make
 ```
 
 > [!NOTE]  
-> The Julia set can have two more params (see below):
+> The Julia set can have two more params (see below): <br />
 ./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
 
 ## Usage
