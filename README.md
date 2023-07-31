@@ -25,7 +25,14 @@ ZOOM Out (mouse/trackpad) | zooms out the fractal image following the mouse | AL
 
 ```bash
 git clone git@github.com:PGCL1/42_Fractol.git
+cd 42_Fractol/mlx && make
+cd .. && make
+./fractol [fractal-name] [iterations]
 ```
+
+> [!NOTE]  
+> The Julia set can have two more params (see below):
+> ./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
 
 ## Usage
 
