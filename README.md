@@ -1,8 +1,13 @@
 # 42_Fractol
 
-42_Fractol is my project from 42's curriculum where we are first introduced to graphical programming. In this project, we are asked to create at least 2 fractals by using the MLX42 Library (mlx folder here). 
+42_Fractol is my project from 42's curriculum where we are first introduced to graphical programming through fractals. I thought fractals were an interesting topic to jump into due to the incredible depth of colors present in fractals and their almost infinite complexity. <br />
+Where do fractals come from? <br />
+Have you ever heard of complex numbers; those weird numbers that have a real and a complex part. Well if not, it's not that hard: basically when you plot numbers the x axis represent the real part and the y axis is the imaginary part. See, it's simple. <br />
+Now let's go a bit deeper, all numbers when squared infinetely can eitheir become divergent meaning they tend to the infinite...they explode!<br /> 
+2 becomes 4 becomes 16 becomes 256 becomes 65,536 ... :rocket::boom: <br />
+Other numbers such as 0.5 for example, when squared infinitely will never surpass 2 as a value. I will let you do the maths. Those numbers are convergent. <br />
+Now going back to fractals, a fractal is the graphical representation of all divergent points on a plot. If you want to learn more about this, check out [Mandelbrot Painter](https://www.geogebra.org/m/BUVhcRSv#material/XQprvGbW) 
 
-My project contains 3 fractals namely the Mandelbrot set, the Julia set and the Multibrot set. I also added a few features to this project which I will resume in a table.
 
 Commands | Description | Fractals |
 |---|---|---|
@@ -32,7 +37,9 @@ cd .. && make
 
 > [!NOTE]  
 > The Julia set can have two more params (see below): <br />
+```bash
 ./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
+```
 
 ## Usage
 
@@ -46,3 +53,7 @@ cd .. && make
 # returns 'Julia set 0.285 0 at 30 iterations '
 ./fractol Julia 30 0.285 0
 ```
+##Examples
+
+### Pressing C to change fractal colors
+
