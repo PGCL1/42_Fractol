@@ -37,9 +37,6 @@ cd .. && make
 ## Usage
 
 ```C
-# to compile the program
-make
-
 # returns 'Mandelbrot set'
 ./fractol Mandelbrot
 
