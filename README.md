@@ -30,6 +30,7 @@ git clone git@github.com:PGCL1/42_Fractol.git
 ## Usage
 
 ```C
+# to compile the program
 make
 
 # returns 'Mandelbrot set'
