@@ -17,7 +17,6 @@ cd .. && make
 >```bash
 >./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
 >```
-<br /> <br /> 
 
 ## Foreword (lil history and math on the project)
 
