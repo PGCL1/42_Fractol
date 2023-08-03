@@ -1,25 +1,7 @@
 # 42_Fractol
 
 42_Fractol is my project from 42's curriculum where we are first introduced to graphical programming through fractals. I thought fractals were an interesting topic to jump into due to the incredible depth of colors present in fractals and their almost infinite complexity. <br />
-
-## Installation
-
-```bash
-git clone git@github.com:PGCL1/42_Fractol.git
-cd 42_Fractol/mlx && make
-cd .. && make
-./fractol [fractal-name] [iterations]
-```
-
-> [!NOTE]  
-> The Julia set can have two more params (see below): <br />
->```bash
->./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
->```
-<br />
-
-## Foreword (lil history and math on the project)
-
+<br /> 
 **Where do fractals come from?** <br />
 <br /> 
 Have you ever heard of complex numbers; those weird numbers that have a real and a complex part. Well if not, it's not that hard: basically when you plot numbers the x axis represent the real part and the y axis is the imaginary part. See, it's simple. <br />
@@ -50,6 +32,21 @@ D | move right the fractal image | ALL |
 ZOOM In (mouse/trackpad) | zooms in the fractal image following the mouse | ALL | 
 ZOOM Out (mouse/trackpad) | zooms out the fractal image following the mouse | ALL | 
 
+## Installation
+
+```bash
+git clone git@github.com:PGCL1/42_Fractol.git
+cd 42_Fractol/mlx && make
+cd .. && make
+./fractol [fractal-name] [iterations]
+```
+
+> [!NOTE]  
+> The Julia set can have two more params (see below): <br />
+```bash
+./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
+```
+
 ## Usage
 
 ```C
@@ -57,7 +54,7 @@ ZOOM Out (mouse/trackpad) | zooms out the fractal image following the mouse | AL
 ./fractol Mandelbrot
 
 # returns 'Mandelbrot set at 300 iterations'
-./fractol Mandelbrot 300
+./fractol Mandelbrot 30
 
 # returns 'Julia set 0.285 0 at 30 iterations '
 ./fractol Julia 30 0.285 0
