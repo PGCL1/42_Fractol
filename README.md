@@ -54,7 +54,7 @@ cd .. && make
 ./fractol Mandelbrot
 
 # returns 'Mandelbrot set at 300 iterations'
-./fractol Mandelbrot 30
+./fractol Mandelbrot 300
 
 # returns 'Julia set 0.285 0 at 30 iterations '
 ./fractol Julia 30 0.285 0
