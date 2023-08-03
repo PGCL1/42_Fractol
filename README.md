@@ -1,7 +1,6 @@
 # 42_Fractol
 
 42_Fractol is my project from 42's curriculum where we are first introduced to graphical programming through fractals. I thought fractals were an interesting topic to jump into due to the incredible depth of colors present in fractals and their almost infinite complexity. <br />
-<br /> 
 
 ## Installation
 
@@ -17,6 +16,7 @@ cd .. && make
 >```bash
 >./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
 >```
+<br />
 
 ## Foreword (lil history and math on the project)
 
