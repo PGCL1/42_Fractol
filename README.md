@@ -43,9 +43,9 @@ cd .. && make
 
 > [!NOTE]  
 > The Julia set can have two more params (see below): <br />
-```bash
-./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
-```
+> ```bash
+> ./fractol [fractal-name] [iterations] [complex-real] [complex-imaginary]
+> ```
 
 ## Usage
 
