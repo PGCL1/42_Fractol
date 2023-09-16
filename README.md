@@ -53,7 +53,7 @@ cd .. && make
 # returns 'Mandelbrot set'
 ./fractol Mandelbrot
 
-# returns 'Mandelbrot set at 300 iterations'
+# returns 'Mandelbrot set at 30 iterations'
 ./fractol Mandelbrot 30
 
 # returns 'Julia set 0.285 0 at 30 iterations '
