@@ -66,3 +66,6 @@ cd .. && make
 
 ### Pressing Plus or Minus to increment fractal iterations
 ![](gifs_docs/pressing_+-.gif)
+
+### Pressing F to change Julia's constants
+![](gifs_docs/pressing_f.gif)
