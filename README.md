@@ -62,4 +62,4 @@ cd .. && make
 ## Examples
 
 ### Pressing C to change fractal colors
-![](gifs_docs/pressing_c.mov)
+![](gifs_docs/pressing_c.gif)
