@@ -59,7 +59,7 @@ cd .. && make
 # returns 'Julia set 0.285 0 at 30 iterations '
 ./fractol Julia 30 0.285 0
 ```
-## Examples
+## Some Visual Examples -- explore the rest :)
 
 ### Pressing C to change fractal colors
 ![](gifs_docs/pressing_c.gif)
