@@ -40,15 +40,15 @@ void iterations(int keycode, t_data *var)
 {
 	if (var->fract.MaxIterations > 310)
 		var->fract.MaxIterations = 10;
-	if (keycode == PLUS)
+	if (keycode == PLUS || keycode == 24)
 	{
-		var->fract.MaxIterations += 10;
+		var->fract.MaxIterations += 1;
 		if (var->fract.MaxIterations == 310)
 			var->fract.MaxIterations = 10;
 	}
-	else if (keycode == MINUS)
+	else if (keycode == MINUS || keycode == 27)
 	{
-		var->fract.MaxIterations -= 10;
+		var->fract.MaxIterations -= 1;
 		if (var->fract.MaxIterations == 0)
 			var->fract.MaxIterations = 10;
 	}
