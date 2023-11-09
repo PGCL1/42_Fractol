@@ -64,7 +64,7 @@ cd .. && make
 ### Pressing C to change fractal colors
 ![](gifs_docs/pressing_c.gif)
 
-### Pressing Plus or Minus to increment fractal iterations
+### Pressing '+' or '-' to increment or decrement fractal iterations
 ![](gifs_docs/pressing_+-.gif)
 
 ### Pressing F to change Julia's constants
